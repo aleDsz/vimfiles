@@ -1,7 +1,9 @@
-pedrofranceschi's vimfiles
+greenboxal's vimfiles
 ========
 
 These are my vimfiles. I created them almost from scratch when I started using Vim and adapted them to my needs.
+
+Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfiles).
 
 #### What's included
 
@@ -46,7 +48,7 @@ Go to your home directory:
 Clone my vimfiles repo:
 
 
-    git clone --recursive https://github.com/pedrofranceschi/vimfiles.git
+    git clone --recursive https://github.com/greenboxal/vimfiles.git
 
 Rename the repo to .vim in your home directory:
 
@@ -74,3 +76,4 @@ Install bundles by typing
 	:PluginInstall
 
 Restart vim and enjoy! :)
+
