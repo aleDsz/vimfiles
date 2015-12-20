@@ -57,9 +57,9 @@ Link vimrc and gvimrc to your home directory:
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
 
-Open "mensch-Powerline.otf" and click "Install font" to install Powerline's font which supports fancy characters.
+Open "Monaco-Powerline.otf" and click "Install font" to install Powerline's font which supports fancy characters.
 
-	open Monaco-Powerline.otf
+	open ~/.vim/Monaco-Powerline.otf
 
 Open Vim:
 
@@ -71,6 +71,6 @@ Open Vim:
 
 Install bundles by typing
 
-	:BundleInstall
+	:PluginInstall
 
 Restart vim and enjoy! :)
