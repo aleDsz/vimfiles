@@ -349,4 +349,10 @@ nnoremap <leader>csv ggV/^+-<cr>dGV?^+-<cr>dgg:g/^+-/d<cr>:%s/^<bar> \<bar> <bar
 " Sets YAML syntax for *.lookml files.
 autocmd BufRead,BufNewFile *.lookml set filetype=yaml
 " }}}
+" ##### Elixir {{{
+autocmd BufRead,BufNewFile *.ex set filetype=elixir
+autocmd BufRead,BufNewFile *.exs set filetype=elixir
+autocmd FileType elixir set shiftwidth=2
+autocmd FileType elixir set tabstop=2
+" }}}
 " }}}
