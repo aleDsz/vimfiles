@@ -116,6 +116,12 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 " Always diff using vertical mode
 set diffopt+=vertical
 
+" Allows the mouse to be used
+set mouse=a
+
+" Automatically reads changed files
+set autoread
+
 
 " Enable syntax highlighting
 syntax on
@@ -288,6 +294,9 @@ endfunction
 " Specific shiftwidth for ruby files
 autocmd FileType ruby set shiftwidth=2
 autocmd FileType ruby set tabstop=2
+" Convert tabs to spaces in Ruby files
+autocmd FileType ruby set expandtab
+
 " But not for erb files...
 autocmd FileType eruby set shiftwidth=4
 autocmd FileType eruby set tabstop=4
