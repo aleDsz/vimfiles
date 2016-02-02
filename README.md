@@ -38,6 +38,7 @@ Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfil
 * [vim-puppet](https://github.com/rodjek/vim-puppet)
 * [vim-ls](https://github.com/gkz/vim-ls)
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+* [dracula-theme](https://github.com/zenorocha/dracula-theme)
 
 #### Installing (step by step)
 
