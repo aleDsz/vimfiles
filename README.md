@@ -39,6 +39,7 @@ Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfil
 * [vim-ls](https://github.com/gkz/vim-ls)
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 * [dracula-theme](https://github.com/zenorocha/dracula-theme)
+* [tern_for_vim](https://github.com/ternjs/tern_for_vim)
 
 #### Installing (step by step)
 
@@ -74,6 +75,10 @@ Open Vim:
 Install bundles by typing
 
 	:PluginInstall
+
+Execute plugin specific installation
+
+	bash ~/.vim/install.sh
 
 Restart vim and enjoy! :)
 

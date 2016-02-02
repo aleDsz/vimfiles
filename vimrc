@@ -46,6 +46,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'gkz/vim-ls'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'ternjs/tern_for_vim'
 " }}}
 " ##### Vundle post-setup {{{
 call vundle#end()            " required
@@ -132,6 +133,7 @@ autocmd BufEnter * colorscheme dracula
 
 " Leader = ,
 let mapleader = ","
+let maplocalleader = "'"
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
@@ -253,6 +255,11 @@ let g:NumberToggleTrigger="<leader>ll"
 "}}}
 " ##### togglelist {{{
 let g:toggle_list_copen_command="Copen"
+" }}}
+" ##### tern {{{
+let g:tern_request_timeout = 5
+let g:tern_map_prefix = '<LocalLeader>'
+let g:tern_map_keys = 1
 " }}}
 " }}}
 " ##### Ack motions {{{
