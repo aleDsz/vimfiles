@@ -12,7 +12,7 @@ set lines=25 columns=100          " Window dimensions.
 " Uncomment to use.
 " set guioptions-=r                 " Don't show right scrollbar
 
-colorscheme badwolf
+colorscheme dracula
 
 " Save using Command-S on MacVim without replacing
 noremap <D-s> :w<CR>

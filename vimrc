@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " "}}}
 " ##### Bundles  {{{
-Plugin 'sjl/badwolf'
+Plugin 'vjl/badwolf'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'b4winckler/vim-objc'
@@ -45,6 +45,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'gkz/vim-ls'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 " }}}
 " ##### Vundle post-setup {{{
 call vundle#end()            " required
@@ -126,8 +127,8 @@ set autoread
 " Enable syntax highlighting
 syntax on
 " Sets the colorscheme for terminal sessions too.
-colorscheme badwolf
-autocmd BufEnter * colorscheme badwolf
+colorscheme dracula
+autocmd BufEnter * colorscheme dracula
 
 " Leader = ,
 let mapleader = ","
@@ -320,8 +321,6 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Wrap markdown files.
 autocmd BufRead,BufNewFile *.md set wrap
-
-autocmd BufEnter *.md colorscheme badwolf
 " }}}
 " ##### JavaScript  {{{
 " Sets javascript syntax for *.json files.
