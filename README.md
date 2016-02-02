@@ -78,7 +78,8 @@ Install bundles by typing
 
 Execute plugin specific installation
 
-	bash ~/.vim/install.sh
+	cd ~/.vim
+	bash ./install.sh
 
 Restart vim and enjoy! :)
 
