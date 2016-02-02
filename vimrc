@@ -222,7 +222,7 @@ let g:NERDTreeHijackNetrw = 0
 " }}}
 " ##### Airline  {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'papercolor'
 let g:airline_section_warning = ''
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#default#section_truncate_width = {
