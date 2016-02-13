@@ -47,6 +47,7 @@ Plugin 'gkz/vim-ls'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'ternjs/tern_for_vim'
+Plugin 'embear/vim-localvimrc'
 " }}}
 " ##### Vundle post-setup {{{
 call vundle#end()            " required
@@ -260,6 +261,10 @@ let g:toggle_list_copen_command="Copen"
 let g:tern_request_timeout = 5
 let g:tern_map_prefix = '<LocalLeader>'
 let g:tern_map_keys = 1
+" }}}
+" ##### localvimrc {{{
+let g:localvimrc_whitelist=$HOME.'/src/github.com/pagarme/.*'
+let g:localvimrc_persistent=1
 " }}}
 " }}}
 " ##### Ack motions {{{
