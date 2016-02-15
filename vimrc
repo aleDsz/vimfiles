@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " "}}}
 " ##### Bundles  {{{
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
