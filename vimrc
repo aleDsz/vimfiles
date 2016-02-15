@@ -49,6 +49,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'ternjs/tern_for_vim'
 Plugin 'embear/vim-localvimrc'
+Plugin 'editorconfig/editorconfig-vim'
 " }}}
 " ##### Vundle post-setup {{{
 call vundle#end()            " required
@@ -266,6 +267,10 @@ let g:tern_map_keys = 1
 " ##### localvimrc {{{
 let g:localvimrc_whitelist=$HOME.'/src/github.com/pagarme/.*'
 let g:localvimrc_persistent=1
+" }}}
+" ##### editorconfig {{{
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+	
 " }}}
 " }}}
 " ##### Ack motions {{{
