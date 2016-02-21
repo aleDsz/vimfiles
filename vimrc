@@ -201,6 +201,9 @@ noremap <C-C> <esc>
 
 " Go full-screen
 nnoremap <leader>fs :set lines=999 columns=9999<cr>
+
+" Set current file executable
+nnoremap <leader>xx :!chmod +x %<cr>
 " }}}
 " }}}
 " ##### Plugin settings  {{{
