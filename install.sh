@@ -16,8 +16,8 @@ cd ../..
 # Install plugins
 vim +PluginInstall +qall
 
-# Install tern for vim
-cd bundle/tern_for_vim
-npm install
+# Build YCM
+cd bundle/YouCompleteMe
+./install.py --clang-completer --tern-completer --gocode-completer --omnisharp-completer
 cd ../..
 

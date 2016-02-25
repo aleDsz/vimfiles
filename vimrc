@@ -48,9 +48,10 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'gkz/vim-ls'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'ternjs/tern_for_vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'hashivim/vim-terraform'
+Plugin 'Valloric/YouCompleteMe'
 " }}}
 " ##### Vundle post-setup {{{
 call vundle#end()            " required
@@ -185,6 +186,13 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " }}}
+" ##### YouCompleteMe {{{
+nnoremap <localleader>gd :YcmCompleter GoToDefinition<cr>
+nnoremap <localleader>gr :YcmCompleter GoToReferences<cr>
+nnoremap <localleader>gk :YcmCompleter GetDoc<cr>
+nnoremap <localleader>gt :YcmCompleter GetType<cr>
+nnoremap <localleader>gR :RefactorRename 
+" }}}
 " ##### Misc {{{
 " Edit and load vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -204,6 +212,9 @@ nnoremap <leader>fs :set lines=999 columns=9999<cr>
 
 " Set current file executable
 nnoremap <leader>xx :!chmod +x %<cr>
+
+" Close Quickfix and Preview
+nnoremap <leader>q :pclose<cr>:cclose<cr>
 " }}}
 " }}}
 " ##### Plugin settings  {{{
@@ -262,11 +273,6 @@ let g:NumberToggleTrigger="<leader>ll"
 "}}}
 " ##### togglelist {{{
 let g:toggle_list_copen_command="Copen"
-" }}}
-" ##### tern {{{
-let g:tern_request_timeout = 5
-let g:tern_map_prefix = '<LocalLeader>'
-let g:tern_map_keys = 1
 " }}}
 " ##### localvimrc {{{
 let g:localvimrc_whitelist=$HOME.'/src/github.com/pagarme/.*'
