@@ -191,7 +191,7 @@ nnoremap <localleader>gd :YcmCompleter GoToDefinition<cr>
 nnoremap <localleader>gr :YcmCompleter GoToReferences<cr>
 nnoremap <localleader>gk :YcmCompleter GetDoc<cr>
 nnoremap <localleader>gt :YcmCompleter GetType<cr>
-nnoremap <localleader>gR :RefactorRename 
+nnoremap <localleader>gR :YcmCompleter RefactorRename 
 " }}}
 " ##### Misc {{{
 " Edit and load vimrc
