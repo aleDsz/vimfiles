@@ -1,5 +1,4 @@
 greenboxal's vimfiles
-========
 
 These are my vimfiles. I created them almost from scratch when I started using Vim and adapted them to my needs.
 
@@ -9,9 +8,10 @@ Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfil
 
 * [Bad Wolf (colorscheme)](https://github.com/sjl/badwolf)
 * [Molokai (colorscheme, default)](https://github.com/tomasr/molokai)
-* [CtrlP](https://github.com/kien/ctrlp.vim)
+* [CtrlP](https://github.com/ctrlpvim/ctrlp.vim)
 * [vim-objc](https://github.com/b4winckler/vim-objc)
 * [airline](https://github.com/bling/vim-airline)
+* [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [snipmate](https://github.com/msanders/snipmate.vim)
 * [tcomment](https://github.com/tomtom/tcomment_vim)
 * [Yankstack](https://github.com/maxbrunsfeld/vim-yankstack)
@@ -40,6 +40,8 @@ Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfil
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 * [dracula-theme](https://github.com/zenorocha/dracula-theme)
 * [tern_for_vim](https://github.com/ternjs/tern_for_vim)
+* [localvimrc](https://github.com/embear/vim-localvimrc)
+* [editorconfig](https://github.com/editorconfig/editorconfig-vim)
 
 #### Installing (step by step)
 

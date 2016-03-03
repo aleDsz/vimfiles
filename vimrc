@@ -12,7 +12,7 @@ call vundle#begin()
 " ##### Bundles  {{{
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'sjl/badwolf'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'b4winckler/vim-objc'
@@ -45,11 +45,11 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'tomasr/molokai'
 Plugin 'rodjek/vim-puppet'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'embear/vim-localvimrc'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'gkz/vim-ls'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'embear/vim-localvimrc'
-Plugin 'editorconfig/editorconfig-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'Valloric/YouCompleteMe'
 " }}}
@@ -280,7 +280,6 @@ let g:localvimrc_persistent=1
 " }}}
 " ##### editorconfig {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-	
 " }}}
 " }}}
 " ##### Ack motions {{{
