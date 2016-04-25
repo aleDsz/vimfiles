@@ -16,8 +16,17 @@ cd ../..
 # Install plugins
 vim +PluginInstall +qall
 
+# Build Omnisharp
+cd bundle/omnisharp-vim
+git submodule update --init --recursive
+cd server
+xbuild
+cd ../../..
+
 # Build YCM
 cd bundle/YouCompleteMe
+git submodule update --init --recursive
 ./install.py --clang-completer --tern-completer --gocode-completer --omnisharp-completer
 cd ../..
+
 

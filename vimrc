@@ -10,56 +10,75 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " "}}}
 " ##### Bundles  {{{
+" Vundle
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'sjl/badwolf'
+
+" Base
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'b4winckler/vim-objc'
+Plugin 'teranex/jk-jumps.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'milkypostman/vim-togglelist'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'nathanaelkane/vim-indent-guides'
+
+" Support
+Plugin 'tpope/vim-dispatch'
+Plugin 'embear/vim-localvimrc'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'Raimondi/delimitMate'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'mileszs/ack.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'Raimondi/delimitMate'
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'tpope/vim-repeat'
-Plugin 'nono/vim-handlebars'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript'
-Plugin 'milkypostman/vim-togglelist'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'michalliu/jsruntime.vim'
-Plugin 'michalliu/jsoncodecs.vim'
-Plugin 'michalliu/sourcebeautify.vim'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'teranex/jk-jumps.vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'rstacruz/sparkup'
-Plugin 'haya14busa/incsearch.vim'
+
+" Colorschemes
+Plugin 'sjl/badwolf'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'tomasr/molokai'
-Plugin 'rodjek/vim-puppet'
+
+" Languages
+Plugin 'b4winckler/vim-objc'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'embear/vim-localvimrc'
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'rodjek/vim-puppet'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'pangloss/vim-javascript'
 Plugin 'gkz/vim-ls'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'hashivim/vim-terraform'
+Plugin 'OrangeT/vim-csharp'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'digitaltoad/vim-pug'
+
+" JS Beautify
+Plugin 'michalliu/jsruntime.vim'
+Plugin 'michalliu/jsoncodecs.vim'
+
+" Omnicompletion
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'OmniSharp/omnisharp-vim'
+
+" Search
+Plugin 'mileszs/ack.vim'
+Plugin 'haya14busa/incsearch.vim'
+
+" Git
+Plugin 'tpope/vim-fugitive'
 " }}}
 " ##### Vundle post-setup {{{
 call vundle#end()            " required
 filetype plugin indent on    " required
 " }}}
 " ##### Basic options  {{{
+" NeoVim Options
 " Display incomplete commands.
-set showcmd
+set noshowcmd
 " Display the mode you're in.
 set showmode
 
@@ -123,15 +142,12 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 " Always diff using vertical mode
 set diffopt+=vertical
 
-" Allows the mouse to be used
-set mouse=a
-
 " Automatically reads changed files
 set autoread
 
-
 " Enable syntax highlighting
 syntax on
+
 " Sets the colorscheme for terminal sessions too.
 colorscheme dracula
 autocmd BufEnter * colorscheme dracula
@@ -139,6 +155,12 @@ autocmd BufEnter * colorscheme dracula
 " Leader = ,
 let mapleader = ","
 let maplocalleader = "'"
+
+" Open preview window below the code
+set splitbelow
+
+" Remove 'press any key to continue'
+set cmdheight=1
 " }}}
 " ##### General mappings  {{{
 " ##### Tabs {{{
@@ -280,6 +302,56 @@ let g:localvimrc_persistent=1
 " }}}
 " ##### editorconfig {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" }}}
+" ##### OmniSharp {{{
+let g:OmniSharp_timeout = 1
+
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+
+augroup omnisharp_commands
+    autocmd!
+
+    " Builds can also run asynchronously with vim-dispatch installed
+    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
+
+    " Automatic syntax check on events (TextChanged requires Vim 7.4)
+    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+
+    " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+
+    " Show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+
+    " The following commands are contextual, based on the current cursor position.
+    autocmd FileType cs nnoremap <localleader>gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <localleader>fi :OmniSharpFindImplementations<cr>
+    autocmd FileType cs nnoremap <localleader>ft :OmniSharpFindType<cr>
+    autocmd FileType cs nnoremap <localleader>fs :OmniSharpFindSymbol<cr>
+    autocmd FileType cs nnoremap <localleader>fu :OmniSharpFindUsages<cr>
+
+    " Finds members in the current buffer
+    autocmd FileType cs nnoremap <localleader>fm :OmniSharpFindMembers<cr>
+
+    " Cursor can be anywhere on the line containing an issue
+    autocmd FileType cs nnoremap <localleader>x  :OmniSharpFixIssue<cr>
+    autocmd FileType cs nnoremap <localleader>fx :OmniSharpFixUsings<cr>
+    autocmd FileType cs nnoremap <localleader>tt :OmniSharpTypeLookup<cr>
+    autocmd FileType cs nnoremap <localleader>dc :OmniSharpDocumentation<cr>
+augroup END
+
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+nnoremap <leader>rl :OmniSharpReloadSolution<cr>
+nnoremap <leader>cf :OmniSharpCodeFormat<cr>
+" Load the current .cs file to the nearest project
+nnoremap <leader>tp :OmniSharpAddToProject<cr>
+
+" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
+nnoremap <leader>ss :OmniSharpStartServer<cr>
+nnoremap <leader>sp :OmniSharpStopServer<cr>
+
+" Add syntax highlighting for types and interfaces
+nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 " }}}
 " }}}
 " ##### Ack motions {{{
