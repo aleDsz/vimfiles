@@ -14,7 +14,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Base
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'teranex/jk-jumps.vim'
@@ -22,6 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'milkypostman/vim-togglelist'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " Support
 Plugin 'tpope/vim-dispatch'
@@ -60,13 +60,24 @@ Plugin 'michalliu/jsruntime.vim'
 Plugin 'michalliu/jsoncodecs.vim'
 
 " Omnicompletion
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
+if has('nvim')
+	Plugin 'neomake/neomake'
+	Plugin 'Shougo/deoplete.nvim'
+	Plugin 'carlitux/deoplete-ternjs'
+	Plugin 'zchee/deoplete-go'
+	Plugin 'awetzel/elixir.nvim'
+	Plugin 'Rip-Rip/clang_complete'
+else
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'scrooloose/syntastic'
+endif 
+
 Plugin 'OmniSharp/omnisharp-vim'
 
 " Search
-Plugin 'mileszs/ack.vim'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -273,11 +284,11 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'z': 60,
 \ }
 " }}}
-" ##### CtrlP  {{{
-" Works not only in ancestor directories of my working directory.
-let g:ctrlp_working_path_mode = 'a'
-" Custom ignores
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store|.cache|.tmp'
+" ##### FZF  {{{
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+nnoremap <C-P> :Files<cr>
+nnoremap <C-F> :Ag 
 " }}}
 " ##### Yankstack  {{{
 " Don't use default mappings
@@ -286,9 +297,6 @@ let g:yankstack_map_keys = 0
 " Set bindings
 nmap <C-M> <Plug>yankstack_substitute_older_paste
 nmap <C-N> <Plug>yankstack_substitute_newer_paste
-" }}}
-" ##### Ack  {{{
-noremap <C-F> :Ack!<space>
 " }}}
 " ##### Number toggle  {{{
 let g:NumberToggleTrigger="<leader>ll"
@@ -352,6 +360,23 @@ nnoremap <leader>sp :OmniSharpStopServer<cr>
 
 " Add syntax highlighting for types and interfaces
 nnoremap <leader>th :OmniSharpHighlightTypes<cr>
+" }}}
+" ##### Syntastic {{{
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_enable_balloons = 0
+" }}}
+" ##### Deoplete {{{
+let g:deoplete#enable_at_startup = 1
+" }}}
+" ##### Neomake {{{
+augroup neomake_save_linter
+	autocmd!
+	autocmd BufWritePost *.js Neomake
+	autocmd BufWritePost *.py Neomake
+	autocmd BufWritePost *.rb Neomake
+augroup end
+
+let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 " }}}
 " }}}
 " ##### Ack motions {{{
