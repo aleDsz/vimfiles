@@ -22,6 +22,7 @@ Plugin 'milkypostman/vim-togglelist'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'sjl/vitality.vim'
 
 " Support
 Plugin 'tpope/vim-dispatch'
@@ -177,7 +178,6 @@ set cmdheight=1
 " ##### Tabs {{{
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>e :tabedit
-nnoremap <leader>c :tabclose<cr>
 nnoremap <leader>n :tabnext<cr>
 nnoremap <leader>p :tabprevious<cr>
 " }}}
@@ -196,11 +196,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" Create windows
-nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>m <C-w>s<C-w>j
-nnoremap <leader>d <C-w>q
 " }}}
 " ##### Folding {{{
 " Toggles folding with space
@@ -226,6 +221,11 @@ nnoremap <localleader>gk :YcmCompleter GetDoc<cr>
 nnoremap <localleader>gt :YcmCompleter GetType<cr>
 nnoremap <localleader>gR :YcmCompleter RefactorRename 
 " }}}
+" ##### Spell {{{
+set spelllang=en_us
+
+nnoremap ,sc :set spell!<cr>
+" }}}
 " ##### Misc {{{
 " Edit and load vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -248,6 +248,13 @@ nnoremap <leader>xx :!chmod +x %<cr>
 
 " Close Quickfix and Preview
 nnoremap <leader>q :pclose<cr>:cclose<cr>
+
+" OS Clipboard
+vnoremap <leader>c "*y
+vnoremap <leader>v "*p
+vnoremap <leader>V "*P
+nnoremap <leader>v "*p
+vnoremap <leader>V "*P
 " }}}
 " }}}
 " ##### Plugin settings  {{{
@@ -350,7 +357,7 @@ augroup END
 
 " Force OmniSharp to reload the solution. Useful when switching branches etc.
 nnoremap <leader>rl :OmniSharpReloadSolution<cr>
-nnoremap <leader>cf :OmniSharpCodeFormat<cr>
+" nnoremap <leader>cf :OmniSharpCodeFormat<cr>
 " Load the current .cs file to the nearest project
 nnoremap <leader>tp :OmniSharpAddToProject<cr>
 
@@ -374,45 +381,12 @@ augroup neomake_save_linter
 	autocmd BufWritePost *.js Neomake
 	autocmd BufWritePost *.py Neomake
 	autocmd BufWritePost *.rb Neomake
+	autocmd BufWritePost *.pp Neomake
 augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
+let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
 " }}}
-" }}}
-" ##### Ack motions {{{
-" (from Steve Losh's vimrc)
-" Motions to Ack for things.  Works with pretty much everything, including:
-"
-"   w, W, e, E, b, B, t*, f*, i*, a*, and custom text objects
-"
-" Awesome.
-"
-" Note: If the text covered by a motion contains a newline it won't work.  Ack
-" searches line-by-line.
-
-nnoremap <silent> <leader>a :set opfunc=<SID>AckMotion<CR>g@
-xnoremap <silent> <leader>a :<C-U>call <SID>AckMotion(visualmode())<CR>
-
-nnoremap <bs> :Ack! '\b<c-r><c-w>\b'<cr>
-xnoremap <silent> <bs> :<C-U>call <SID>AckMotion(visualmode())<CR>
-
-function! s:CopyMotionForType(type)
-    if a:type ==# 'v'
-        silent execute "normal! `<" . a:type . "`>y"
-    elseif a:type ==# 'char'
-        silent execute "normal! `[v`]y"
-    endif
-endfunction
-
-function! s:AckMotion(type) abort
-    let reg_save = @@
-
-    call s:CopyMotionForType(a:type)
-
-    execute "normal! :Ack! --literal " . shellescape(@@) . "\<cr>"
-
-    let @@ = reg_save
-endfunction
 " }}}
 " ##### Filetype-specific  {{{
 " ##### Ruby  {{{
@@ -472,10 +446,6 @@ autocmd FileType puppet set tabstop=2
 autocmd BufRead,BufNewFile *.ls set filetype=ls
 autocmd FileType ls set shiftwidth=2
 autocmd FileType ls set tabstop=2
-" }}}
-" ##### SQL {{{
-" SQL to CSV
-nnoremap <leader>csv ggV/^+-<cr>dGV?^+-<cr>dgg:g/^+-/d<cr>:%s/^<bar> \<bar> <bar>$//g<cr>:%s/ *<bar> */,/g<cr>
 " }}}
 " ##### LookML {{{
 " Sets YAML syntax for *.lookml files.
