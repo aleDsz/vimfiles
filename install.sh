@@ -2,6 +2,13 @@
 
 set -e
 
+
+if which nvim; then
+	VIM=nvim
+fi
+
+echo Building with $VIM
+
 # Make sure tmp dir exists
 mkdir -p tmp
 
@@ -14,19 +21,17 @@ git checkout master
 cd ../..
 
 # Install plugins
-vim +PluginInstall +qall
+$VIM +PluginInstall +qa
+$VIM +UpdateRemotePlugins +qa
 
 # Build Omnisharp
-cd bundle/omnisharp-vim
-git submodule update --init --recursive
-cd server
-xbuild
-cd ../../..
-
-# Build YCM
-cd bundle/YouCompleteMe
-git submodule update --init --recursive
-./install.py --clang-completer --tern-completer --gocode-completer --omnisharp-completer
-cd ../..
-
+if which xbuild; then
+	cd bundle/omnisharp-vim
+	git submodule update --init --recursive
+	cd server
+	xbuild
+	cd ../../..
+else
+	echo Not building Omnisharp
+fi
 
