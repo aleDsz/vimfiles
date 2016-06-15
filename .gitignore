@@ -4,3 +4,4 @@ bundle/
 *.swp
 .netrwhist
 .init.vim-rplugin~
+.-rplugin~

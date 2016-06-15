@@ -1,6 +1,6 @@
 " .vimrc
-" Author: Pedro Franceschi <pedrohfranceschi@gmail.com>
-" Source: http://github.com/pedrofranceschi/vimfiles
+" Author: Jonathan Lima <greenboxal@gmail.com>
+" Source: http://github.com/greenboxal/vimfiles
 
 " ##### Vundle setup  {{{
 set nocompatible              " be iMproved, required
@@ -38,7 +38,7 @@ Plugin 'maxbrunsfeld/vim-yankstack'
 
 " Colorschemes
 Plugin 'sjl/badwolf'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'zenorocha/vim'
 Plugin 'tomasr/molokai'
 
 " Languages
