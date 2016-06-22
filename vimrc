@@ -2,96 +2,88 @@
 " Author: Jonathan Lima <greenboxal@gmail.com>
 " Source: http://github.com/greenboxal/vimfiles
 
-" ##### Vundle setup  {{{
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" ##### Plug setup  {{{
+call plug#begin('~/.vim/plugged')
 " "}}}
-" ##### Bundles  {{{
-" Vundle
-Plugin 'VundleVim/Vundle.vim'
-
+" ##### Plugs  {{{
 " Base
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'teranex/jk-jumps.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'milkypostman/vim-togglelist'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'sjl/vitality.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'teranex/jk-jumps.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'milkypostman/vim-togglelist'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'sjl/vitality.vim'
 
 " Support
-Plugin 'tpope/vim-dispatch'
-Plugin 'embear/vim-localvimrc'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'Raimondi/delimitMate'
-Plugin 'msanders/snipmate.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'Shougo/vimproc.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'embear/vim-localvimrc'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'Raimondi/delimitMate'
+Plug 'msanders/snipmate.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'Shougo/vimproc.vim'
 
 " Colorschemes
-Plugin 'sjl/badwolf'
-Plugin 'zenorocha/vim'
-Plugin 'tomasr/molokai'
+Plug 'sjl/badwolf'
+Plug 'dracula/vim'
+Plug 'tomasr/molokai'
 
 " Languages
-Plugin 'b4winckler/vim-objc'
-Plugin 'rodjek/vim-puppet'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'pangloss/vim-javascript'
-Plugin 'gkz/vim-ls'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'hashivim/vim-terraform'
-Plugin 'OrangeT/vim-csharp'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-compiler'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin 'vim-erlang/vim-erlang-tags'
-Plugin 'osyo-manga/vim-monster'
+Plug 'b4winckler/vim-objc'
+Plug 'rodjek/vim-puppet'
+Plug 'jnwhiteh/vim-golang'
+Plug 'pangloss/vim-javascript'
+Plug 'gkz/vim-ls'
+Plug 'kchmck/vim-coffee-script'
+Plug 'hashivim/vim-terraform'
+Plug 'OrangeT/vim-csharp'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'elixir-lang/vim-elixir'
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'vim-erlang/vim-erlang-tags'
+Plug 'osyo-manga/vim-monster'
 
 " JS Beautify
-Plugin 'michalliu/jsruntime.vim'
-Plugin 'michalliu/jsoncodecs.vim'
+Plug 'michalliu/jsruntime.vim'
+Plug 'michalliu/jsoncodecs.vim'
 
 " Omnicompletion
 if has('nvim')
-	Plugin 'neomake/neomake'
-	Plugin 'Shougo/deoplete.nvim'
-	Plugin 'carlitux/deoplete-ternjs'
-	Plugin 'zchee/deoplete-go'
-	Plugin 'awetzel/elixir.nvim'
-	Plugin 'Rip-Rip/clang_complete'
+	Plug 'neomake/neomake'
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'carlitux/deoplete-ternjs'
+	Plug 'zchee/deoplete-go'
+	Plug 'awetzel/elixir.nvim'
+	Plug 'Rip-Rip/clang_complete'
 else
-	Plugin 'Valloric/YouCompleteMe'
-	Plugin 'scrooloose/syntastic'
+	Plug 'Valloric/YouCompleteMe'
+	Plug 'scrooloose/syntastic'
 endif 
 
-Plugin 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 " Search
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " }}}
-" ##### Vundle post-setup {{{
-call vundle#end()            " required
-filetype plugin indent on    " required
+" ##### Plug post-setup {{{
+call plug#end()
 " }}}
 " ##### Basic options  {{{
 " NeoVim Options

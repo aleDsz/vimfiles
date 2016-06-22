@@ -5,3 +5,4 @@ bundle/
 .netrwhist
 .init.vim-rplugin~
 .-rplugin~
+plugged
