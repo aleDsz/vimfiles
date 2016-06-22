@@ -35,6 +35,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'maxbrunsfeld/vim-yankstack'
+Plugin 'Shougo/vimproc.vim'
 
 " Colorschemes
 Plugin 'sjl/badwolf'
@@ -43,7 +44,6 @@ Plugin 'tomasr/molokai'
 
 " Languages
 Plugin 'b4winckler/vim-objc'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'rodjek/vim-puppet'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'pangloss/vim-javascript'
@@ -55,6 +55,12 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'vim-erlang/vim-erlang-runtime'
+Plugin 'vim-erlang/vim-erlang-compiler'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
+Plugin 'vim-erlang/vim-erlang-tags'
+Plugin 'osyo-manga/vim-monster'
 
 " JS Beautify
 Plugin 'michalliu/jsruntime.vim'
@@ -375,6 +381,9 @@ let g:syntastic_enable_balloons = 0
 " ##### Deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
+" ##### monster (ruby) {{{
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+" }}}
 " ##### Neomake {{{
 augroup neomake_save_linter
 	autocmd!
@@ -382,6 +391,9 @@ augroup neomake_save_linter
 	autocmd BufWritePost *.py Neomake
 	autocmd BufWritePost *.rb Neomake
 	autocmd BufWritePost *.pp Neomake
+	autocmd BufWritePost *.erl Neomake
+	autocmd BufWritePost *.ex Neomake
+	autocmd BufWritePost *.exs Neomake
 augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
@@ -436,12 +448,6 @@ autocmd FileType vim set foldmethod=marker
 " Automatically format XML files
 nnoremap <leader>xb :%s,>[ <tab>]*<,>\r<,g<cr> gg=G
 " }}}
-" ##### Puppet {{{
-autocmd BufRead,BufNewFile *.pp set filetype=puppet
-autocmd BufRead,BufNewFile Puppetfile set filetype=ruby
-autocmd FileType puppet set shiftwidth=2
-autocmd FileType puppet set tabstop=2
-" }}}
 " ##### LiveScript {{{
 autocmd BufRead,BufNewFile *.ls set filetype=ls
 autocmd FileType ls set shiftwidth=2
@@ -450,6 +456,11 @@ autocmd FileType ls set tabstop=2
 " ##### LookML {{{
 " Sets YAML syntax for *.lookml files.
 autocmd BufRead,BufNewFile *.lookml set filetype=yaml
+" }}}
+" ##### Erlang {{{
+autocmd BufRead,BufNewFile *.erl set filetype=erlang
+autocmd FileType erlang set shiftwidth=2
+autocmd FileType erlang set tabstop=2
 " }}}
 " ##### Elixir {{{
 autocmd BufRead,BufNewFile *.ex set filetype=elixir
