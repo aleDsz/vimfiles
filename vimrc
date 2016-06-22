@@ -260,7 +260,7 @@ vnoremap <leader>c "*y
 vnoremap <leader>v "*p
 vnoremap <leader>V "*P
 nnoremap <leader>v "*p
-vnoremap <leader>V "*P
+nnoremap <leader>V "*P
 " }}}
 " }}}
 " ##### Plugin settings  {{{
