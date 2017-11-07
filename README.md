@@ -2,7 +2,7 @@ aleDsz's vimfiles
 
 These are my vimfiles. I created them almost from scratch when I started using Vim and adapted them to my needs.
 
-Based on [greenbox's vimfiles](https://github.com/greenbox/vimfiles).
+Based on [greenbox's vimfiles](https://github.com/greenboxal/vimfiles).
 
 #### What's included
 
