@@ -1,8 +1,8 @@
-greenboxal's vimfiles
+aleDsz's vimfiles
 
 These are my vimfiles. I created them almost from scratch when I started using Vim and adapted them to my needs.
 
-Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfiles).
+Based on [greenbox's vimfiles](https://github.com/greenbox/vimfiles).
 
 #### What's included
 
@@ -42,6 +42,7 @@ Based on [Pedro Franceschi's vimfiles](https://github.com/pedrofranceschi/vimfil
 * [tern_for_vim](https://github.com/ternjs/tern_for_vim)
 * [localvimrc](https://github.com/embear/vim-localvimrc)
 * [editorconfig](https://github.com/editorconfig/editorconfig-vim)
+* [Vim-R-plugin](https://github.com/vim-scripts/Vim-R-plugin)
 
 #### Installing (step by step)
 
@@ -53,8 +54,11 @@ Go to your home directory:
 
 Clone my vimfiles repo:
 
+    git clone --recursive https://github.com/aleDsz/vimfiles.git
 
-    git clone --recursive https://github.com/greenboxal/vimfiles.git
+(If you use Windows):
+
+    git checkout windows
 
 Rename the repo to .vim in your home directory:
 
@@ -64,7 +68,6 @@ Link vimrc and gvimrc to your home directory:
 
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
-
 
 Open Vim:
 

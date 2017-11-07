@@ -7,12 +7,12 @@ set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
-set lines=25 columns=100          " Window dimensions.
+set lines=310 columns=400         " Window dimensions.
 
 " Uncomment to use.
-" set guioptions-=r                 " Don't show right scrollbar
+set guioptions=                 " Don't show right scrollbar
 
-colorscheme dracula
+colorscheme molokai
 
 " Save using Command-S on MacVim without replacing
 noremap <D-s> :w<CR>

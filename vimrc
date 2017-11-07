@@ -1,9 +1,14 @@
 " .vimrc
-" Author: Jonathan Lima <greenboxal@gmail.com>
-" Source: http://github.com/greenboxal/vimfiles
+" Author: Alexandre de Souza <alexandre@aledsz.com.br>
+" Source: http://github.com/aleDsz/vimfiles
 
 " ##### Plug setup  {{{
 call plug#begin('~/.vim/plugged')
+
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
 " "}}}
 " ##### Plugs  {{{
 " Base
@@ -38,6 +43,7 @@ Plug 'tomasr/molokai'
 " Languages
 Plug 'b4winckler/vim-objc'
 Plug 'rodjek/vim-puppet'
+Plug 'vim-scripts/Vim-R-plugin'
 Plug 'jnwhiteh/vim-golang'
 Plug 'pangloss/vim-javascript'
 Plug 'gkz/vim-ls'
@@ -68,11 +74,8 @@ if has('nvim')
 	Plug 'awetzel/elixir.nvim'
 	Plug 'Rip-Rip/clang_complete'
 else
-	Plug 'Valloric/YouCompleteMe'
 	Plug 'scrooloose/syntastic'
 endif 
-
-Plug 'OmniSharp/omnisharp-vim'
 
 " Search
 Plug 'haya14busa/incsearch.vim'
@@ -86,6 +89,11 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 " }}}
 " ##### Basic options  {{{
+" aleDsz Options
+set macligatures
+set guifont=Fira\ Code:h12
+set guioptions=                 " Don't show right scrollbar
+
 " NeoVim Options
 " Display incomplete commands.
 set noshowcmd
@@ -159,8 +167,8 @@ set autoread
 syntax on
 
 " Sets the colorscheme for terminal sessions too.
-colorscheme dracula
-autocmd BufEnter * colorscheme dracula
+colorscheme molokai
+autocmd BufEnter * colorscheme molokai
 
 " Leader = ,
 let mapleader = ","
