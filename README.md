@@ -79,12 +79,7 @@ Open Vim:
 
 Install bundles by typing
 
-	:PluginInstall
-
-Execute plugin specific installation
-
-	cd ~/.vim
-	bash ./install.sh
+	:PlugInstall
 
 Restart vim and enjoy! :)
 
