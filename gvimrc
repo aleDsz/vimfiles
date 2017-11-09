@@ -12,7 +12,7 @@ set lines=310 columns=400         " Window dimensions.
 " Uncomment to use.
 set guioptions=                 " Don't show right scrollbar
 
-colorscheme molokai
+colorscheme dracula
 
 " Save using Command-S on MacVim without replacing
 noremap <D-s> :w<CR>
