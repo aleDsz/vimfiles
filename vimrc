@@ -90,7 +90,6 @@ call plug#end()
 " }}}
 " ##### Basic options  {{{
 " aleDsz Options
-set macligatures
 set guifont=Fira\ Code:h12
 set guioptions=                 " Don't show right scrollbar
 
@@ -167,8 +166,8 @@ set autoread
 syntax on
 
 " Sets the colorscheme for terminal sessions too.
-colorscheme molokai
-autocmd BufEnter * colorscheme molokai
+colorscheme dracula
+autocmd BufEnter * colorscheme dracula
 
 " Leader = ,
 let mapleader = ","
