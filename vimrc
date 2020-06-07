@@ -21,6 +21,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'sjl/vitality.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Support
 Plug 'tpope/vim-dispatch'
@@ -60,8 +61,10 @@ Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
 Plug 'osyo-manga/vim-monster'
+Plug 'burner/vim-svelte'
+Plug 'JesseKPhillips/d.vim'
 
-" JS Beautify
+" JS Beautiy
 Plug 'michalliu/jsruntime.vim'
 Plug 'michalliu/jsoncodecs.vim'
 
@@ -90,7 +93,7 @@ call plug#end()
 " }}}
 " ##### Basic options  {{{
 " aleDsz Options
-set guifont=Fira\ Code:h12
+set guifont=Fira\ Code:h14
 set guioptions=                 " Don't show right scrollbar
 
 " NeoVim Options
@@ -142,9 +145,9 @@ set nowritebackup
 set directory=$HOME/.vim/tmp//,.
 
 " Global tab width.
-set tabstop=4
+set tabstop=2
 " And again, related.
-set shiftwidth=4
+set shiftwidth=2
 
 " Files open expanded
 set foldlevelstart=50
@@ -317,7 +320,7 @@ let g:NumberToggleTrigger="<leader>ll"
 let g:toggle_list_copen_command="Copen"
 " }}}
 " ##### localvimrc {{{
-let g:localvimrc_whitelist=$HOME.'/src/github.com/pagarme/.*'
+let g:localvimrc_whitelist=$HOME.'/github/altec/.*'
 let g:localvimrc_persistent=1
 " }}}
 " ##### editorconfig {{{
