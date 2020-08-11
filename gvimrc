@@ -2,12 +2,12 @@
 " Copy to ~/.gvimrc or ~/_gvimrc.
 
 set macligatures
-set guifont=Fira\ Code:h14
+set guifont=VictorMono\ Nerd\ Font:h18
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
-set lines=310 columns=400         " Window dimensions.
+set lines=120 columns=200         " Window dimensions.
 
 " Uncomment to use.
 set guioptions=                 " Don't show right scrollbar
@@ -16,3 +16,7 @@ colorscheme dracula
 
 " Save using Command-S on MacVim without replacing
 noremap <D-s> :w<CR>
+
+" MacVim transparency
+set transparency=8
+set blur=80

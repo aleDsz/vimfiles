@@ -2,7 +2,7 @@
 " Author: Alexandre de Souza <alexandre@aledsz.com.br>
 " Source: http://github.com/aleDsz/vimfiles
 
-" ##### Plug setup  {{{
+" #####Plug setup  {{{
 call plug#begin('~/.vim/plugged')
 
 if filereadable(expand("~/.vimrc.bundles"))
@@ -35,6 +35,15 @@ Plug 'msanders/snipmate.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Shougo/vimproc.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Colorschemes
 Plug 'sjl/badwolf'
@@ -44,7 +53,6 @@ Plug 'tomasr/molokai'
 " Languages
 Plug 'b4winckler/vim-objc'
 Plug 'rodjek/vim-puppet'
-Plug 'vim-scripts/Vim-R-plugin'
 Plug 'jnwhiteh/vim-golang'
 Plug 'pangloss/vim-javascript'
 Plug 'gkz/vim-ls'
@@ -63,6 +71,14 @@ Plug 'vim-erlang/vim-erlang-tags'
 Plug 'osyo-manga/vim-monster'
 Plug 'burner/vim-svelte'
 Plug 'JesseKPhillips/d.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'tapichu/asm2d-vim'
+Plug 'ocaml/vim-ocaml'
+Plug 'scrooloose/syntastic'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'jordwalke/vim-reasonml'
+Plug 'jeaye/color_coded'
 
 " JS Beautiy
 Plug 'michalliu/jsruntime.vim'
@@ -71,6 +87,7 @@ Plug 'michalliu/jsoncodecs.vim'
 " Omnicompletion
 if has('nvim')
 	Plug 'neomake/neomake'
+	Plug 'jalvesaq/Nvim-R'
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go'
@@ -93,7 +110,7 @@ call plug#end()
 " }}}
 " ##### Basic options  {{{
 " aleDsz Options
-set guifont=Fira\ Code:h14
+set guifont=VictorMono\ Nerd\ Font:h18
 set guioptions=                 " Don't show right scrollbar
 
 " NeoVim Options
@@ -235,7 +252,9 @@ set spelllang=en_us
 nnoremap ,sc :set spell!<cr>
 " }}}
 " ##### Misc {{{
-" Edit and load vimrc
+" Edit and load vimrc/gvimrc
+nnoremap <leader>eg :vsplit $MYGVIMRC<cr>
+nnoremap <leader>sg :source $MYGVIMRC<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -327,41 +346,20 @@ let g:localvimrc_persistent=1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " }}}
 " ##### OmniSharp {{{
+filetype indent plugin on
+
 let g:OmniSharp_timeout = 1
-
+let g:OmniSharp_server_use_mono = 1
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+let g:OmniSharp_start_server = 1
+let g:OmniSharp_highlighting = 2
 
-augroup omnisharp_commands
-    autocmd!
+set completepopup=highlight:Pmenu,border:off
+set completeopt=longest,menuone,preview,popuphidden
 
-    " Builds can also run asynchronously with vim-dispatch installed
-    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
-
-    " Automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-
-    " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-
-    " Show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-
-    " The following commands are contextual, based on the current cursor position.
-    autocmd FileType cs nnoremap <localleader>gd :OmniSharpGotoDefinition<cr>
-    autocmd FileType cs nnoremap <localleader>fi :OmniSharpFindImplementations<cr>
-    autocmd FileType cs nnoremap <localleader>ft :OmniSharpFindType<cr>
-    autocmd FileType cs nnoremap <localleader>fs :OmniSharpFindSymbol<cr>
-    autocmd FileType cs nnoremap <localleader>fu :OmniSharpFindUsages<cr>
-
-    " Finds members in the current buffer
-    autocmd FileType cs nnoremap <localleader>fm :OmniSharpFindMembers<cr>
-
-    " Cursor can be anywhere on the line containing an issue
-    autocmd FileType cs nnoremap <localleader>x  :OmniSharpFixIssue<cr>
-    autocmd FileType cs nnoremap <localleader>fx :OmniSharpFixUsings<cr>
-    autocmd FileType cs nnoremap <localleader>tt :OmniSharpTypeLookup<cr>
-    autocmd FileType cs nnoremap <localleader>dc :OmniSharpDocumentation<cr>
-augroup END
+" OmniSharp Server
+let g:OmniSharp_start_server = 0
+let g:OmniSharp_port = 2000
 
 " Force OmniSharp to reload the solution. Useful when switching branches etc.
 nnoremap <leader>rl :OmniSharpReloadSolution<cr>
@@ -394,12 +392,53 @@ augroup neomake_save_linter
 	autocmd BufWritePost *.rb Neomake
 	autocmd BufWritePost *.pp Neomake
 	autocmd BufWritePost *.erl Neomake
-	autocmd BufWritePost *.ex Neomake
-	autocmd BufWritePost *.exs Neomake
+	" autocmd BufWritePost *.ex Neomake
+	" autocmd BufWritePost *.exs Neomake
 augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
+" }}}
+" ##### OCaml/Reason {{{
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+let g:asyncomplete_auto_completeopt = 0
+
+set completeopt=menuone,noinsert,noselect,preview
+
+autocmd BufRead,BufNewFile *.re set filetype=reason
+autocmd BufRead,BufNewFile *.rei set filetype=reason
+autocmd BufRead,BufNewFile *.ml set filetype=ocaml
+autocmd BufRead,BufNewFile *.mli set filetype=ocaml
+
+autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
+
+if executable('ocamllsp')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'ocamllsp',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocamllsp']},
+        \ 'whitelist': ['ocaml', 'reason', 'reasonml'],
+        \ })
+endif
+
+" Echo warning/error under cursor in normal mode
+let g:lsp_diagnostics_echo_cursor = 1
+" Prettier gutter signs
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
+" Lets you see the hover information by pressing "K".
+au FileType ocaml setlocal keywordprg=:LspHover
+" Use tag muscle memory to go to definition, press Ctrl+]
+au FileType ocaml nnoremap <buffer> <C-]> :LspDefinition<CR>
+" Ensure whatever you use for completion knows about the LSP information.
+au FileType ocaml setlocal omnifunc=lsp#complete
+" }}}
+" ##### LanguageServer {{{
+let g:LanguageClient_serverCommands = {
+    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
+    \ }
+
+let g:color_coded_enabled = 1
+let g:color_coded_filetypes = ['r']
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
