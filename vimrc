@@ -44,6 +44,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'tpope/vim-projectionist'
+Plug 'c-brenn/fuzzy-projectionist.vim'
+Plug 'andyl/vim-projectionist-elixir'
 
 " Colorschemes
 Plug 'sjl/badwolf'
@@ -118,6 +121,9 @@ set guioptions=                 " Don't show right scrollbar
 set noshowcmd
 " Display the mode you're in.
 set showmode
+
+" Format on save
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Intuitive backspacing.
 set backspace=indent,eol,start

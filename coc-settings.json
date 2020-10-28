@@ -1,3 +1,13 @@
 {
+	"prettier.eslintIntegration": true,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"elixir",
+		"css",
+		"markdown"
+	],
+	"coc.preferences.formatOnType": true,
+	"elixirLS.dialyzerEnabled": true,
+	"elixirLS.mixEnv": "test",
+	"elixirLS.mixTarget": "test",
 	"elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
 }
