@@ -2,7 +2,7 @@
 " Author: Alexandre de Souza <alexandre@aledsz.com.br>
 " Source: http://github.com/aleDsz/vimfiles
 
-" #####Plug setup  {{{
+" ##### Plug setup  {{{
 call plug#begin('~/.vim/plugged')
 
 if filereadable(expand("~/.vimrc.bundles"))
@@ -91,9 +91,6 @@ Plug 'michalliu/jsoncodecs.vim'
 if has('nvim')
 	Plug 'neomake/neomake'
 	Plug 'jalvesaq/Nvim-R'
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'carlitux/deoplete-ternjs'
-	Plug 'zchee/deoplete-go'
 	Plug 'awetzel/elixir.nvim'
 	Plug 'Rip-Rip/clang_complete'
 else
@@ -360,8 +357,12 @@ let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:OmniSharp_start_server = 1
 let g:OmniSharp_highlighting = 2
 
-set completepopup=highlight:Pmenu,border:off
-set completeopt=longest,menuone,preview,popuphidden
+if has('nvim')
+	set winhl=Normal:PMenu
+else
+	set completepopup=highlight:Pmenu,border:off
+	set completeopt=longest,menuone,preview,popuphidden
+end
 
 " OmniSharp Server
 let g:OmniSharp_start_server = 0
