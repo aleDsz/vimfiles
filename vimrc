@@ -110,7 +110,7 @@ call plug#end()
 " }}}
 " ##### Basic options  {{{
 " aleDsz Options
-set guifont=VictorMono\ Nerd\ Font:h18
+set guifont=VictorMono\ Nerd\ Font:h14
 set guioptions=                 " Don't show right scrollbar
 
 " NeoVim Options
@@ -118,6 +118,15 @@ set guioptions=                 " Don't show right scrollbar
 set noshowcmd
 " Display the mode you're in.
 set showmode
+
+" Transparency
+set termguicolors
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
+if has('nvim')
+	highlight Normal guibg=none
+	highlight NonText guibg=none
+end
 
 " Format on save
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')

@@ -3,8 +3,10 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"elixir",
 		"css",
+		"R",
 		"markdown"
 	],
+	"r.lsp.path": "/home/aledsz/.asdf/shims/R",
 	"coc.preferences.formatOnType": true,
 	"elixirLS.dialyzerEnabled": true,
 	"elixirLS.mixEnv": "test",

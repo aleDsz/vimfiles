@@ -2,7 +2,7 @@
 " Copy to ~/.gvimrc or ~/_gvimrc.
 
 set macligatures
-set guifont=VictorMono\ Nerd\ Font:h18
+set guifont=VictorMono\ Nerd\ Font:h14
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
