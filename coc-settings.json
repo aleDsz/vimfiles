@@ -3,13 +3,21 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"elixir",
 		"css",
+		"scss",
+		"sass",
+    "ruby",
 		"R",
 		"markdown"
 	],
 	"r.lsp.path": "/home/aledsz/.asdf/shims/R",
 	"coc.preferences.formatOnType": true,
+	"eslint.packageManager": "npm",
+	"tsserver.formatOnType": true,
+	"tsserver.log": "debug",
 	"elixirLS.dialyzerEnabled": true,
 	"elixirLS.mixEnv": "test",
-	"elixirLS.mixTarget": "test",
-	"elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
+  "elixirLS.mixTarget": "test",
+  "solargraph.trace.server": "messages",
+  "solargraph.formatting": true,
+  "solargraph.logLevel": "debug"
 }
