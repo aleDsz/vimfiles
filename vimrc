@@ -77,25 +77,18 @@ Plug 'JesseKPhillips/d.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'tapichu/asm2d-vim'
-Plug 'ocaml/vim-ocaml'
 Plug 'scrooloose/syntastic'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'jordwalke/vim-reasonml'
 Plug 'jeaye/color_coded'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 " JS Beautiy
 Plug 'michalliu/jsruntime.vim'
 Plug 'michalliu/jsoncodecs.vim'
 
 " Omnicompletion
-if has('nvim')
-	Plug 'neomake/neomake'
-	Plug 'jalvesaq/Nvim-R'
-	Plug 'awetzel/elixir.nvim'
-	Plug 'Rip-Rip/clang_complete'
-else
-	Plug 'scrooloose/syntastic'
-endif 
+Plug 'scrooloose/syntastic'
 
 " Search
 Plug 'haya14busa/incsearch.vim'
@@ -289,7 +282,8 @@ nnoremap <leader>xx :!chmod +x %<cr>
 nnoremap <leader>q :pclose<cr>:cclose<cr>
 
 " OS Clipboard
-vnoremap <leader>c "*y
+nnoremap <leader>y "+yy
+vnoremap <leader>y "+yy
 vnoremap <leader>v "*p
 vnoremap <leader>V "*P
 nnoremap <leader>v "*p
@@ -331,7 +325,7 @@ let g:airline#extensions#default#section_truncate_width = {
 \ }
 " }}}
 " ##### FZF  {{{
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:ag_working_path_mode="r"
 
 nnoremap <C-P> :Files<cr>
 nnoremap <C-F> :Ag 
@@ -403,50 +397,17 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 " ##### Neomake {{{
 augroup neomake_save_linter
 	autocmd!
-	autocmd BufWritePost *.js Neomake
-	autocmd BufWritePost *.py Neomake
-	autocmd BufWritePost *.rb Neomake
-	autocmd BufWritePost *.pp Neomake
-	autocmd BufWritePost *.erl Neomake
+  " autocmd BufWritePost *.js Neomake
+	" autocmd BufWritePost *.py Neomake
+	" autocmd BufWritePost *.rb Neomake
+	" autocmd BufWritePost *.pp Neomake
+	" autocmd BufWritePost *.erl Neomake
 	" autocmd BufWritePost *.ex Neomake
 	" autocmd BufWritePost *.exs Neomake
 augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
-" }}}
-" ##### OCaml/Reason {{{
-imap <c-space> <Plug>(asyncomplete_force_refresh)
-let g:asyncomplete_auto_completeopt = 0
-
-set completeopt=menuone,noinsert,noselect,preview
-
-autocmd BufRead,BufNewFile *.re set filetype=reason
-autocmd BufRead,BufNewFile *.rei set filetype=reason
-autocmd BufRead,BufNewFile *.ml set filetype=ocaml
-autocmd BufRead,BufNewFile *.mli set filetype=ocaml
-
-autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
-
-if executable('ocamllsp')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'ocamllsp',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocamllsp']},
-        \ 'whitelist': ['ocaml', 'reason', 'reasonml'],
-        \ })
-endif
-
-" Echo warning/error under cursor in normal mode
-let g:lsp_diagnostics_echo_cursor = 1
-" Prettier gutter signs
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '‼'}
-" Lets you see the hover information by pressing "K".
-au FileType ocaml setlocal keywordprg=:LspHover
-" Use tag muscle memory to go to definition, press Ctrl+]
-au FileType ocaml nnoremap <buffer> <C-]> :LspDefinition<CR>
-" Ensure whatever you use for completion knows about the LSP information.
-au FileType ocaml setlocal omnifunc=lsp#complete
 " }}}
 " ##### LanguageServer {{{
 let g:LanguageClient_serverCommands = {
