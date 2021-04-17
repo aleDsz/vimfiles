@@ -446,8 +446,6 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set wrap
 " }}}
 " ##### JavaScript  {{{
-" Sets javascript syntax for *.json files.
-autocmd BufRead,BufNewFile *.json set filetype=javascript
 autocmd BufRead,BufNewFile *.js set filetype=javascript
 autocmd BufRead,BufNewFile *.jsx set filetype=javascript
 
