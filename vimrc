@@ -86,9 +86,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'vim-crystal/vim-crystal'
 
-" JS Beautiy
-Plug 'michalliu/jsruntime.vim'
-Plug 'michalliu/jsoncodecs.vim'
 " Omnicompletion
 Plug 'scrooloose/syntastic'
 
