@@ -89,7 +89,6 @@ Plug 'vim-crystal/vim-crystal'
 " JS Beautiy
 Plug 'michalliu/jsruntime.vim'
 Plug 'michalliu/jsoncodecs.vim'
-
 " Omnicompletion
 Plug 'scrooloose/syntastic'
 
@@ -119,6 +118,7 @@ set showmode
 set termguicolors
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
+
 if has('nvim')
 	highlight Normal guibg=none
 	highlight NonText guibg=none
@@ -376,10 +376,10 @@ nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-"nmap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
-nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gd :vsplit<CR><Plug>(coc-definition)
+nmap <leader>GD <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
+"nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
 
 " Remap for format selected region
