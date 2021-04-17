@@ -364,12 +364,6 @@ augroup end
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
 " }}}
-" ##### PHP {{{
-hi phpUseNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
-hi phpClassNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
-syn match phpParentOnly "[()]" contained containedin=phpParent
-hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE
-" }}}
 " ##### Reason {{{
 autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
 " }}}
