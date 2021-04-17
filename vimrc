@@ -75,6 +75,7 @@ Plug 'osyo-manga/vim-monster'
 Plug 'burner/vim-svelte'
 Plug 'JesseKPhillips/d.vim'
 Plug 'StanAngeloff/php.vim'
+Plug 'noahfrederick/vim-composer'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'tapichu/asm2d-vim'
 Plug 'scrooloose/syntastic'
@@ -82,6 +83,7 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'jeaye/color_coded'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'vim-crystal/vim-crystal'
 
 " JS Beautiy
 Plug 'michalliu/jsruntime.vim'
@@ -96,7 +98,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Git
-Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 " }}}
 " ##### Plug post-setup {{{
 call plug#end()
@@ -120,9 +122,6 @@ if has('nvim')
 	highlight Normal guibg=none
 	highlight NonText guibg=none
 end
-
-" Format on save
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Intuitive backspacing.
 set backspace=indent,eol,start
@@ -244,13 +243,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " }}}
-" ##### YouCompleteMe {{{
-nnoremap <localleader>gd :YcmCompleter GoToDefinition<cr>
-nnoremap <localleader>gr :YcmCompleter GoToReferences<cr>
-nnoremap <localleader>gk :YcmCompleter GetDoc<cr>
-nnoremap <localleader>gt :YcmCompleter GetType<cr>
-nnoremap <localleader>gR :YcmCompleter RefactorRename 
-" }}}
 " ##### Spell {{{
 set spelllang=en_us
 
@@ -291,19 +283,14 @@ nnoremap <leader>V "*P
 " }}}
 " }}}
 " ##### Plugin settings  {{{
-" ##### Fugitive  {{{
-" (thanks to Steve Losh's vimrc)
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>ge :Gedit<cr>
-nnoremap <leader>gm :Gmove
-nnoremap <leader>gr :Gread<cr>
-nnoremap <leader>grm :Gremove<cr>
-nnoremap <leader>gp :Git push
+" ##### Lazygit  {{{
+let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
+let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
+let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
+
+" setup mapping to call :LazyGit
+nnoremap <silent> <leader>lg :LazyGit<CR>
 " }}}
 " ##### NERDTree  {{{
 noremap <leader>ft :NERDTreeToggle<CR>
@@ -345,44 +332,11 @@ let g:NumberToggleTrigger="<leader>ll"
 let g:toggle_list_copen_command="Copen"
 " }}}
 " ##### localvimrc {{{
-let g:localvimrc_whitelist=$HOME.'/github/altec/.*'
+let g:localvimrc_whitelist=$HOME.'/github/.*'
 let g:localvimrc_persistent=1
 " }}}
 " ##### editorconfig {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-" }}}
-" ##### OmniSharp {{{
-filetype indent plugin on
-
-let g:OmniSharp_timeout = 1
-let g:OmniSharp_server_use_mono = 1
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-let g:OmniSharp_start_server = 1
-let g:OmniSharp_highlighting = 2
-
-if has('nvim')
-	set winhl=Normal:PMenu
-else
-	set completepopup=highlight:Pmenu,border:off
-	set completeopt=longest,menuone,preview,popuphidden
-end
-
-" OmniSharp Server
-let g:OmniSharp_start_server = 0
-let g:OmniSharp_port = 2000
-
-" Force OmniSharp to reload the solution. Useful when switching branches etc.
-nnoremap <leader>rl :OmniSharpReloadSolution<cr>
-" nnoremap <leader>cf :OmniSharpCodeFormat<cr>
-" Load the current .cs file to the nearest project
-nnoremap <leader>tp :OmniSharpAddToProject<cr>
-
-" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
-nnoremap <leader>ss :OmniSharpStartServer<cr>
-nnoremap <leader>sp :OmniSharpStopServer<cr>
-
-" Add syntax highlighting for types and interfaces
-nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 " }}}
 " ##### Syntastic {{{
 let g:syntastic_enable_highlighting = 0
@@ -409,13 +363,50 @@ augroup end
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
 " }}}
-" ##### LanguageServer {{{
-let g:LanguageClient_serverCommands = {
-    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
-    \ }
+" ##### PHP {{{
+hi phpUseNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
+hi phpClassNamespaceSeparator guifg=#808080 guibg=NONE gui=NONE
+syn match phpParentOnly "[()]" contained containedin=phpParent
+hi phpParentOnly guifg=#f08080 guibg=NONE gui=NONE
+" }}}
+" ##### Reason {{{
+autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
+" }}}
+" ##### coc.nvim {{{
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-let g:color_coded_enabled = 1
-let g:color_coded_filetypes = ['r']
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+"nmap <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
@@ -453,9 +444,38 @@ autocmd BufRead,BufNewFile *.md set wrap
 " ##### JavaScript  {{{
 " Sets javascript syntax for *.json files.
 autocmd BufRead,BufNewFile *.json set filetype=javascript
+autocmd BufRead,BufNewFile *.js set filetype=javascript
+autocmd BufRead,BufNewFile *.jsx set filetype=javascript
+
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+autocmd BufRead,BufNewFile *.tsx set filetype=javascript
 
 " Sets html syntax for *.ejs files.
 autocmd BufRead,BufNewFile *.ejs set filetype=html
+
+autocmd FileType javascript set shiftwidth=2
+autocmd FileType javascript set tabstop=2
+autocmd FileType javascript set expandtab
+
+autocmd FileType typescript set shiftwidth=2
+autocmd FileType typescript set tabstop=2
+autocmd FileType typescript set expandtab
+" }}}
+" ##### CSS {{{
+autocmd BufRead,BufNewFile *.css set filetype=css
+autocmd BufRead,BufNewFile *.scss set filetype=css
+autocmd BufRead,BufNewFile *.sass set filetype=css
+autocmd FileType css set shiftwidth=2
+autocmd FileType css set tabstop=2
+autocmd FileType css set expandtab
+" }}}
+" ##### PHP {{{
+autocmd BufRead,BufNewFile *.php set filetype=php
+autocmd BufRead,BufNewFile *.html set filetype=php
+
+autocmd FileType php set shiftwidth=2
+autocmd FileType php set tabstop=2
+autocmd FileType php set expandtab
 " }}}
 " ##### Vim {{{
 " Make vimrcs open folded
@@ -477,13 +497,50 @@ autocmd BufRead,BufNewFile *.lookml set filetype=yaml
 " }}}
 " ##### Erlang {{{
 autocmd BufRead,BufNewFile *.erl set filetype=erlang
+autocmd BufRead,BufNewFile *.xrl set filetype=erlang
+autocmd BufRead,BufNewFile *.yrl set filetype=erlang
+
 autocmd FileType erlang set shiftwidth=2
 autocmd FileType erlang set tabstop=2
 " }}}
 " ##### Elixir {{{
 autocmd BufRead,BufNewFile *.ex set filetype=elixir
 autocmd BufRead,BufNewFile *.exs set filetype=elixir
+autocmd BufRead,BufNewFile *.sface set filetype=elixir
+autocmd BufRead,BufNewFile *.eex set filetype=elixir
+autocmd BufRead,BufNewFile *.leex set filetype=elixir
+
 autocmd FileType elixir set shiftwidth=2
 autocmd FileType elixir set tabstop=2
+" }}}
+" ##### R {{{
+autocmd BufRead,BufNewFile *.R set filetype=r
+autocmd BufRead,BufNewFile *.Rprofile set filetype=r
+autocmd BufRead,BufNewFile *.Renviron set filetype=r
+autocmd BufRead,BufNewFile *.RData set filetype=r
+autocmd BufRead,BufNewFile *.Rhistory set filetype=r
+
+autocmd FileType r set shiftwidth=2
+autocmd FileType r set tabstop=2
+" }}}
+" ##### OCaml {{{
+autocmd BufRead,BufNewFile *.ml set filetype=ocaml
+autocmd BufRead,BufNewFile *.mli set filetype=ocaml
+
+autocmd FileType ocaml set shiftwidth=2
+autocmd FileType ocaml set tabstop=2
+" }}}
+" ##### ReasonML {{{
+autocmd BufRead,BufNewFile *.re set filetype=reason
+autocmd BufRead,BufNewFile *.rei set filetype=reason
+
+autocmd FileType reason set shiftwidth=2
+autocmd FileType reason set tabstop=2
+" }}}
+" ##### Crystal {{{
+autocmd BufRead,BufNewFile *.cr set filetype=crystal
+
+autocmd FileType crystal set shiftwidth=2
+autocmd FileType crystal set tabstop=2
 " }}}
 " }}}

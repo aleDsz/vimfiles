@@ -1,22 +1,42 @@
 {
   "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "eelixir",
     "elixir",
     "css",
     "scss",
     "sass",
     "ruby",
-    "R",
+    "php",
+    "r",
+    "d"
     "markdown"
   ],
   "r.lsp.path": "~/.asdf/shims/R",
+  "languageserver": {
+    "d": {
+      "module": "~/.dub/packages/.bin/dls-latest/dls",
+      "args": ["--stdio"],
+      "filetypes": ["d"],
+      "trace.server": "off",
+      "rootPatterns": [
+        "dub.json",
+        "dub.sdl"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
   "coc.preferences.formatOnType": true,
+  "diagnostic.checkCurrentLine": true,
   "eslint.packageManager": "npm",
   "tsserver.formatOnType": true,
   "tsserver.log": "debug",
   "elixirLS.dialyzerEnabled": true,
   "elixirLS.mixEnv": "test",
   "elixirLS.mixTarget": "test",
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
   "solargraph.trace.server": "messages",
   "solargraph.formatting": true,
   "solargraph.logLevel": "debug"
