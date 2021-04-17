@@ -47,6 +47,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'tpope/vim-projectionist'
 Plug 'c-brenn/fuzzy-projectionist.vim'
 Plug 'andyl/vim-projectionist-elixir'
+Plug 'oblitum/rainbow'
 
 " Colorschemes
 Plug 'sjl/badwolf'
@@ -407,6 +408,9 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
+" }}}
+" ##### Rainbow  {{{
+let g:rainbow_active = 1
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
