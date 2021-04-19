@@ -87,6 +87,7 @@ Plug 'jordwalke/vim-reasonml'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'vim-crystal/vim-crystal'
+Plug 'hashivim/vim-terraform'
 
 " Omnicompletion
 Plug 'scrooloose/syntastic'
@@ -537,5 +538,20 @@ autocmd BufRead,BufNewFile *.cr set filetype=crystal
 
 autocmd FileType crystal set shiftwidth=2
 autocmd FileType crystal set tabstop=2
+autocmd FileType crystal set expandtab
+" }}}
+" ##### Terraform {{{
+autocmd BufRead,BufNewFile *.tf set filetype=terraform
+autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
+autocmd BufRead,BufNewFile *.hcl set filetype=terraform
+
+autocmd FileType terraform set shiftwidth=2
+autocmd FileType terraform set tabstop=2
+autocmd FileType terraform set expandtab
+
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
+let g:terraform_binary_path="~/.asdf/shims/terraform"
 " }}}
 " }}}
