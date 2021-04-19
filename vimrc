@@ -82,10 +82,7 @@ Plug 'tapichu/asm2d-vim'
 Plug 'scrooloose/syntastic'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'jeaye/color_coded'
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'jordwalke/vim-reasonml'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
 Plug 'vim-crystal/vim-crystal'
 Plug 'hashivim/vim-terraform'
 
@@ -363,9 +360,6 @@ augroup end
 
 let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
-" }}}
-" ##### Reason {{{
-autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
 " }}}
 " ##### coc.nvim {{{
 " Use <c-space> to trigger completion.
