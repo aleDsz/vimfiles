@@ -188,6 +188,19 @@ set autoread
 syntax on
 
 " Sets the colorscheme for terminal sessions too.
+function! RubyHighlights() abort
+	hi rubyClassVariable guifg=#bd93f9 guibg=NONE gui=NONE
+	hi rubySymbol guifg=#ff79c6 guibg=NONE gui=NONE
+	hi rubySharpBang guifg=#ff79c6 guibg=NONE gui=NONE
+
+	syn match rubyDelegate	"\<\%(delegate\)\>"
+	hi rubyDelegate guifg=#ff79c6 guibg=NONE gui=NONE
+endfunction
+
+augroup MyColors
+		autocmd!
+    autocmd ColorScheme dracula call RubyHighlights()
+augroup END
 colorscheme dracula
 autocmd BufEnter * colorscheme dracula
 
