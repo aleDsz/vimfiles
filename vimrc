@@ -47,7 +47,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'tpope/vim-projectionist'
 Plug 'c-brenn/fuzzy-projectionist.vim'
 Plug 'andyl/vim-projectionist-elixir'
-Plug 'oblitum/rainbow'
 
 " Colorschemes
 Plug 'sjl/badwolf'
@@ -188,20 +187,8 @@ set autoread
 syntax on
 
 " Sets the colorscheme for terminal sessions too.
-function! RubyHighlights() abort
-	hi rubyClassVariable guifg=#bd93f9 guibg=NONE gui=NONE
-	hi rubySymbol guifg=#ff79c6 guibg=NONE gui=NONE
-	hi rubySharpBang guifg=#ff79c6 guibg=NONE gui=NONE
-
-	syn match rubyDelegate	"\<\%(delegate\)\>"
-	hi rubyDelegate guifg=#ff79c6 guibg=NONE gui=NONE
-endfunction
-
-augroup MyColors
-		autocmd!
-    autocmd ColorScheme dracula call RubyHighlights()
-augroup END
 colorscheme dracula
+let g:dracula_italic = 1
 autocmd BufEnter * colorscheme dracula
 
 " Leader = ,
@@ -410,9 +397,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " }}}
-" ##### Rainbow  {{{
-let g:rainbow_active = 1
-" }}}
 " }}}
 " ##### Filetype-specific  {{{
 " ##### Ruby  {{{
@@ -510,8 +494,6 @@ autocmd FileType erlang set tabstop=2
 autocmd BufRead,BufNewFile *.ex set filetype=elixir
 autocmd BufRead,BufNewFile *.exs set filetype=elixir
 autocmd BufRead,BufNewFile *.sface set filetype=elixir
-autocmd BufRead,BufNewFile *.eex set filetype=elixir
-autocmd BufRead,BufNewFile *.leex set filetype=elixir
 
 autocmd FileType elixir set shiftwidth=2
 autocmd FileType elixir set tabstop=2
