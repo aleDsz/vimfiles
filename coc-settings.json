@@ -18,7 +18,6 @@
     "d",
     "markdown"
   ],
-  "r.lsp.path": "~/.asdf/shims/R",
   "languageserver": {
     "d": {
       "module": "~/.serve-d/serve-d",
@@ -50,7 +49,8 @@
   },
   "coc.preferences.formatOnType": true,
   "diagnostic.checkCurrentLine": true,
-  "eslint.packageManager": "npm",
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onType",
   "tsserver.formatOnType": true,
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
@@ -66,5 +66,8 @@
   },
   "codeLens.enable": true,
   "suggest.autoTrigger": "always",
-  "suggest.timeout": 1000
+  "suggest.timeout": 1000,
+  "yaml.completion": true,
+  "yaml.format.singleQuote": false,
+  "yaml.trace.server": "verbose"
 }
