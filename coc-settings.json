@@ -1,6 +1,9 @@
 {
   "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": [
+    "docker",
+    "dockerfile",
+    "html",
     "json",
     "eelixir",
     "elixir",
@@ -10,17 +13,37 @@
     "sass",
     "ruby",
     "php",
+    "go",
     "r",
     "d",
     "markdown"
   ],
+  "r.lsp.path": "~/.asdf/shims/R",
   "languageserver": {
     "d": {
-      "module": "~/.dub/packages/.bin/dls-latest/dls",
+      "module": "~/.serve-d/serve-d",
       "args": ["--stdio"],
       "filetypes": ["d"],
-      "trace.server": "off",
+      "trace.server": "verbose",
       "rootPatterns": ["dub.json", "dub.sdl"],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "ocaml": {
+      "command": "ocamllsp",
+      "filetypes": ["ocaml", "ml", "mli"],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "reason": {
+      "command": "ocamllsp",
+      "filetypes": ["reason", "re", "rei"],
       "initializationOptions": {},
       "settings": {}
     }
@@ -30,6 +53,7 @@
   "eslint.packageManager": "npm",
   "tsserver.formatOnType": true,
   "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
   "elixirLS.dialyzerEnabled": true,
   "elixirLS.mixEnv": "test",
   "elixirLS.mixTarget": "test",
@@ -37,7 +61,10 @@
   "solargraph.trace.server": "messages",
   "solargraph.formatting": true,
   "solargraph.logLevel": "debug",
+  "go.goplsOptions": {
+    "completeUnimported": true
+  },
   "codeLens.enable": true,
-  "suggest.timeout": 1000,
-  "erlang_ls.trace.server": "verbose"
+  "suggest.autoTrigger": "always",
+  "suggest.timeout": 1000
 }

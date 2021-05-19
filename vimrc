@@ -56,7 +56,7 @@ Plug 'tomasr/molokai'
 " Languages
 Plug 'b4winckler/vim-objc'
 Plug 'rodjek/vim-puppet'
-Plug 'jnwhiteh/vim-golang'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'pangloss/vim-javascript'
 Plug 'gkz/vim-ls'
 Plug 'kchmck/vim-coffee-script'
@@ -84,6 +84,8 @@ Plug 'jeaye/color_coded'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-crystal/vim-crystal'
 Plug 'hashivim/vim-terraform'
+Plug 'rgrinberg/vim-ocaml', {'for': ['ocaml', 'opam', 'dune'] }
+Plug 'jordwalke/vim-reasonml', {'for': ['reason', 'ocaml'] }
 
 " Omnicompletion
 Plug 'scrooloose/syntastic'
@@ -110,15 +112,8 @@ set noshowcmd
 " Display the mode you're in.
 set showmode
 
-" Transparency
-set termguicolors
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-hi Normal guibg=NONE ctermbg=NONE
-
-if has('nvim')
-	highlight Normal guibg=none
-	highlight NonText guibg=none
-end
+" Start with NERDTree openned
+autocmd VimEnter * NERDTree
 
 " Intuitive backspacing.
 set backspace=indent,eol,start
@@ -190,6 +185,13 @@ syntax on
 colorscheme dracula
 let g:dracula_italic = 1
 autocmd BufEnter * colorscheme dracula
+
+" Transparency
+set termguicolors
+" Start with transparency
+au VimEnter * highlight Normal guibg=NONE ctermbg=NONE
+" Override 
+au BufEnter * highlight Normal guibg=NONE ctermbg=NONE
 
 " Leader = ,
 let mapleader = ","
@@ -394,8 +396,26 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" CodeLens Color
+hi CocCodeLens guifg=#44475a
+" }}}
+" {{{ ##### ReasonML/OCaml
+autocmd FileType reason silent! call merlin#Register()
+autocmd FileType reason nnoremap <silent>	<leader>rp :ReasonPrettyPrint<CR>
+autocmd FileType ocaml,reason nnoremap <silent> <localleader>d :MerlinDocument<CR>
+
+let g:reasonml_project_airline = 1
+let g:reasonml_syntastic_airline = 1
+let g:reasonml_clean_project_airline = 1
+
+let g:merlin_python_version = 3
+
+let g:syntastic_reason = 1
+let g:syntastic_ocaml_checkers = ['merlin']
+let g:syntastic_reason_checkers = ['merlin']
+
+let g:airline#extensions#esy#enabled = 1
+let g:airline#extensions#reason#enabled = 1
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
@@ -514,6 +534,7 @@ autocmd BufRead,BufNewFile *.mli set filetype=ocaml
 
 autocmd FileType ocaml set shiftwidth=2
 autocmd FileType ocaml set tabstop=2
+autocmd FileType ocaml set expandtab
 " }}}
 " ##### ReasonML {{{
 autocmd BufRead,BufNewFile *.re set filetype=reason
@@ -521,6 +542,7 @@ autocmd BufRead,BufNewFile *.rei set filetype=reason
 
 autocmd FileType reason set shiftwidth=2
 autocmd FileType reason set tabstop=2
+autocmd FileType reason set expandtab
 " }}}
 " ##### Crystal {{{
 autocmd BufRead,BufNewFile *.cr set filetype=crystal
@@ -542,5 +564,13 @@ let g:terraform_align=1
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
 let g:terraform_binary_path="~/.asdf/shims/terraform"
+" }}}
+" {{{ ##### CSS
+autocmd BufRead,BufNewFile *.css set filetype=css
+autocmd BufRead,BufNewFile *.scss set filetype=scss
+autocmd BufRead,BufNewFile *.sass set filetype=sass
+
+autocmd FileType scss setl iskeyword+=@-@
+autocmd FileType scss setl iskeyword+=$-$
 " }}}
 " }}}
