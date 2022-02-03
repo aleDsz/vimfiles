@@ -86,6 +86,7 @@ Plug 'vim-crystal/vim-crystal'
 Plug 'hashivim/vim-terraform'
 Plug 'rgrinberg/vim-ocaml', {'for': ['ocaml', 'opam', 'dune'] }
 Plug 'jordwalke/vim-reasonml', {'for': ['reason', 'ocaml'] }
+Plug 'jwalton512/vim-blade'
 
 " Omnicompletion
 Plug 'scrooloose/syntastic'
@@ -97,6 +98,10 @@ Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+
+" Misc
+Plug 'andweeb/presence.nvim'
+Plug 'ryanoasis/vim-devicons'
 " }}}
 " ##### Plug post-setup {{{
 call plug#end()
@@ -364,8 +369,35 @@ let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
 let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
 " }}}
 " ##### coc.nvim {{{
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -375,7 +407,6 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <leader>gd :vsplit<CR><Plug>(coc-definition)
 nmap <leader>GD <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
-"nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
 
 " Remap for format selected region
@@ -391,10 +422,22 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " CodeLens Color
 hi CocCodeLens guifg=#44475a
@@ -427,8 +470,8 @@ autocmd FileType ruby set tabstop=2
 autocmd FileType ruby set expandtab
 
 " But not for erb files...
-autocmd FileType eruby set shiftwidth=4
-autocmd FileType eruby set tabstop=4
+autocmd FileType eruby set shiftwidth=2
+autocmd FileType eruby set tabstop=2
 "
 " Remaps textobj-rubyblock's bindings to vim's defaults
 autocmd FileType ruby map aB ar
