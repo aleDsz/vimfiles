@@ -46,27 +46,62 @@ Plug 'dracula/vim'
 Plug 'tomasr/molokai'
 
 " Languages
+" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" JavaScript
 Plug 'pangloss/vim-javascript'
+
+" Terraform
 Plug 'hashivim/vim-terraform'
+
+" C#
 Plug 'OrangeT/vim-csharp'
+Plug 'OmniSharp/omnisharp-vim'
+
+" Mustache
 Plug 'mustache/vim-mustache-handlebars'
+
+" Markdown
 Plug 'nelstrom/vim-markdown-folding'
+
+" Dockerfile
 Plug 'ekalinin/Dockerfile.vim'
+
+" Erlang & Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
+
+" D
 Plug 'JesseKPhillips/d.vim'
+
+" PHP
 Plug 'StanAngeloff/php.vim'
 Plug 'noahfrederick/vim-composer'
+Plug 'jwalton512/vim-blade'
+
+" ASM
 Plug 'tapichu/asm2d-vim'
+
+" 
 Plug 'scrooloose/syntastic'
 Plug 'lifepillar/vim-mucomplete'
+
+" C/C++/ObjC
 Plug 'jeaye/color_coded'
+Plug 'm-pilia/vim-ccls'
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Ruby
 Plug 'vim-ruby/vim-ruby'
+
+" Crystal
 Plug 'vim-crystal/vim-crystal'
+
+" ReasonML/OCaml
 Plug 'rgrinberg/vim-ocaml', {'for': ['ocaml', 'opam', 'dune'] }
 Plug 'jordwalke/vim-reasonml', {'for': ['reason', 'ocaml'] }
 
@@ -302,7 +337,7 @@ let g:airline#extensions#default#section_truncate_width = {
 let g:ag_working_path_mode="r"
 
 nnoremap <C-P> :Files<cr>
-nnoremap <C-F> :Ag 
+noremap <leader>fs :Ag 
 " }}}
 " ##### Yankstack  {{{
 " Don't use default mappings
@@ -444,20 +479,44 @@ let g:airline#extensions#reason#enabled = 1
 " }}}
 " }}}
 " ##### Filetype-specific  {{{
-" ##### Ruby  {{{
-" Specific shiftwidth for ruby files
-autocmd FileType ruby set shiftwidth=2
-autocmd FileType ruby set tabstop=2
-" Convert tabs to spaces in Ruby files
-autocmd FileType ruby set expandtab
+" ##### C/C++ {{{
+" ============
+" vim-cpp-enhanced-highlight
+" ============
+" Highlighting of class scope is disabled by default. To enable set
+let g:cpp_class_scope_highlight = 1
 
-" But not for erb files...
-autocmd FileType eruby set shiftwidth=2
-autocmd FileType eruby set tabstop=2
-"
-" Remaps textobj-rubyblock's bindings to vim's defaults
-autocmd FileType ruby map aB ar
-autocmd FileType ruby map iB ir
+" Highlighting of member variables is disabled by default. To enable set
+let g:cpp_member_variable_highlight = 1
+
+" Highlighting of class names in declarations is disabled by default. To enable set
+let g:cpp_class_decl_highlight = 1
+
+" Highlighting of POSIX functions is disabled by default. To enable set
+let g:cpp_posix_standard = 1
+
+" There are two ways to highlight template functions. Either
+let g:cpp_experimental_simple_template_highlight = 1
+
+" Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect.
+" Highlighting of library concepts is enabled by
+let g:cpp_concepts_highlight = 1
+
+" This will highlight the keywords concept and requires as well as all named requirements (like DefaultConstructible) in the standard library.
+" Highlighting of user defined functions can be disabled by
+let g:cpp_no_function_highlight = 1
+
+" ============
+" vim-ccls
+" ============
+" The size and position of the tree window can be set:
+let g:ccls_size = 50
+let g:ccls_position = 'botright'
+let g:ccls_orientation = 'horizontal'
+
+" The size of the floating window (Neovim only) can be controlled:
+let g:ccls_float_width = 50
+let g:ccls_float_height = 20
 " }}}
 " ##### Puppet  {{{
 " Specific shiftwidth for puppet files
