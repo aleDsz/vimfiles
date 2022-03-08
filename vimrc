@@ -114,7 +114,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Git
-Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+Plug 'kdheepak/lazygit.nvim'
 
 " Misc
 Plug 'andweeb/presence.nvim'
