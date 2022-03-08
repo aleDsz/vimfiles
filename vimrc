@@ -36,14 +36,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Shougo/vimproc.vim'
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'tpope/vim-projectionist'
 Plug 'c-brenn/fuzzy-projectionist.vim'
 Plug 'andyl/vim-projectionist-elixir'
@@ -54,39 +46,29 @@ Plug 'dracula/vim'
 Plug 'tomasr/molokai'
 
 " Languages
-Plug 'b4winckler/vim-objc'
-Plug 'rodjek/vim-puppet'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'pangloss/vim-javascript'
-Plug 'gkz/vim-ls'
-Plug 'kchmck/vim-coffee-script'
 Plug 'hashivim/vim-terraform'
 Plug 'OrangeT/vim-csharp'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'digitaltoad/vim-pug'
 Plug 'elixir-lang/vim-elixir'
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'vim-erlang/vim-erlang-tags'
-Plug 'osyo-manga/vim-monster'
-Plug 'burner/vim-svelte'
 Plug 'JesseKPhillips/d.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'noahfrederick/vim-composer'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'tapichu/asm2d-vim'
 Plug 'scrooloose/syntastic'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'jeaye/color_coded'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-crystal/vim-crystal'
-Plug 'hashivim/vim-terraform'
 Plug 'rgrinberg/vim-ocaml', {'for': ['ocaml', 'opam', 'dune'] }
 Plug 'jordwalke/vim-reasonml', {'for': ['reason', 'ocaml'] }
-Plug 'jwalton512/vim-blade'
 
 " Omnicompletion
 Plug 'scrooloose/syntastic'
