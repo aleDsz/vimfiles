@@ -39,6 +39,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'tpope/vim-projectionist'
 Plug 'c-brenn/fuzzy-projectionist.vim'
 Plug 'andyl/vim-projectionist-elixir'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Colorschemes
 Plug 'sjl/badwolf'
