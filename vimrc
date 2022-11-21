@@ -602,6 +602,7 @@ autocmd FileType erlang set softtabstop=4
 " ##### Elixir {{{
 autocmd BufRead,BufNewFile *.ex set filetype=elixir
 autocmd BufRead,BufNewFile *.exs set filetype=elixir
+autocmd BufRead,BufNewFile *.*ex set filetype=elixir
 autocmd BufRead,BufNewFile *.sface set filetype=elixir
 
 autocmd FileType elixir set shiftwidth=2
