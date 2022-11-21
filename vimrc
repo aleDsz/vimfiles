@@ -21,7 +21,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'sjl/vitality.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Support
 Plug 'tpope/vim-dispatch'
@@ -591,9 +591,13 @@ autocmd BufRead,BufNewFile *.lookml set filetype=yaml
 autocmd BufRead,BufNewFile *.erl set filetype=erlang
 autocmd BufRead,BufNewFile *.xrl set filetype=erlang
 autocmd BufRead,BufNewFile *.yrl set filetype=erlang
+autocmd BufRead,BufNewFile *.src set filetype=erlang
 
-autocmd FileType erlang set shiftwidth=2
-autocmd FileType erlang set tabstop=2
+autocmd FileType erlang set expandtab
+autocmd FileType erlang set autoindent
+autocmd FileType erlang set smartindent
+autocmd FileType erlang set shiftwidth=4
+autocmd FileType erlang set softtabstop=4
 " }}}
 " ##### Elixir {{{
 autocmd BufRead,BufNewFile *.ex set filetype=elixir
