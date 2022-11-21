@@ -607,6 +607,15 @@ autocmd BufRead,BufNewFile *.sface set filetype=elixir
 autocmd FileType elixir set shiftwidth=2
 autocmd FileType elixir set tabstop=2
 " }}}
+" ##### C# {{{
+autocmd BufRead,BufNewFile *.cs set filetype=cs
+autocmd BufRead,BufNewFile *.csx set filetype=cs
+autocmd BufRead,BufNewFile *.cake set filetype=cs
+
+autocmd FileType cs set shiftwidth=4
+autocmd FileType cs set tabstop=4
+autocmd FileType cs set expandtab
+" }}}
 " ##### R {{{
 autocmd BufRead,BufNewFile *.R set filetype=r
 autocmd BufRead,BufNewFile *.Rprofile set filetype=r
@@ -661,5 +670,12 @@ autocmd BufRead,BufNewFile *.sass set filetype=sass
 
 autocmd FileType scss setl iskeyword+=@-@
 autocmd FileType scss setl iskeyword+=$-$
+" }}}
+" ##### Proto {{{
+autocmd BufRead,BufNewFile *.proto set filetype=proto
+
+autocmd FileType proto set shiftwidth=2
+autocmd FileType proto set tabstop=2
+autocmd FileType proto set expandtab
 " }}}
 " }}}
