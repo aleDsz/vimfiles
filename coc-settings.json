@@ -1,5 +1,4 @@
 {
-  "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "docker",
     "dockerfile",
@@ -76,6 +75,7 @@
   "elixirLS.mixEnv": "test",
   "elixirLS.mixTarget": "test",
   "elixirLS.suggestSpecs": true,
+  "prettier.embeddedLanguageFormatting": "auto",
   "solargraph.trace.server": "messages",
   "solargraph.formatting": true,
   "solargraph.logLevel": "debug",
@@ -84,5 +84,10 @@
   },
   "codeLens.enable": true,
   "suggest.autoTrigger": "always",
-  "suggest.timeout": 1000
+  "suggest.timeout": 1000,
+  "suggest.floatConfig": {
+    "rounded": true
+  },
+  "coc.source.OmniSharp.enable": true,
+  "coc.source.OmniSharp.priority": 1
 }
