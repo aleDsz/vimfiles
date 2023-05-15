@@ -116,7 +116,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 
 " Misc
-Plug 'andweeb/presence.nvim'
+if has("nvim")
+	Plug 'andweeb/presence.nvim'
+end
+
 Plug 'ryanoasis/vim-devicons'
 Plug 'wakatime/vim-wakatime'
 Plug 'chrisbra/unicode.vim'
