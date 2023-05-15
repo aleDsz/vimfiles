@@ -41,6 +41,7 @@ Plug("p00f/nvim-ts-rainbow")
 Plug("spywhere/detect-language.nvim")
 Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("MunifTanjim/prettier.nvim")
+Plug("lvimuser/lsp-inlayhints.nvim")
 
 -- Tests
 Plug("nvim-neotest/neotest")
