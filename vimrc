@@ -42,9 +42,7 @@ Plug 'andyl/vim-projectionist-elixir'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Colorschemes
-Plug 'sjl/badwolf'
 Plug 'dracula/vim'
-Plug 'tomasr/molokai'
 
 " Languages
 " Go
@@ -57,8 +55,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'hashivim/vim-terraform'
 
 " C#
-Plug 'OrangeT/vim-csharp'
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
+" Plug 'nickspoons/vim-sharpenup'
 
 " Mustache
 Plug 'mustache/vim-mustache-handlebars'
@@ -87,10 +85,6 @@ Plug 'jwalton512/vim-blade'
 " ASM
 Plug 'tapichu/asm2d-vim'
 
-" 
-Plug 'scrooloose/syntastic'
-Plug 'lifepillar/vim-mucomplete'
-
 " C/C++/ObjC
 Plug 'jeaye/color_coded'
 Plug 'm-pilia/vim-ccls'
@@ -106,8 +100,12 @@ Plug 'vim-crystal/vim-crystal'
 Plug 'rgrinberg/vim-ocaml', {'for': ['ocaml', 'opam', 'dune'] }
 Plug 'jordwalke/vim-reasonml', {'for': ['reason', 'ocaml'] }
 
+" LuaU
+Plug 'polychromatist/luau-vim'
+
 " Omnicompletion
 Plug 'scrooloose/syntastic'
+Plug 'lifepillar/vim-mucomplete'
 
 " Search
 Plug 'haya14busa/incsearch.vim'
@@ -120,6 +118,8 @@ Plug 'kdheepak/lazygit.nvim'
 " Misc
 Plug 'andweeb/presence.nvim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'wakatime/vim-wakatime'
+Plug 'chrisbra/unicode.vim'
 " }}}
 " ##### Plug post-setup {{{
 call plug#end()
@@ -203,6 +203,9 @@ set autoread
 
 " Enable syntax highlighting
 syntax on
+
+" Disable mouse
+set mouse=
 
 " Sets the colorscheme for terminal sessions too.
 colorscheme dracula
@@ -375,20 +378,43 @@ let g:deoplete#enable_at_startup = 1
 " ##### monster (ruby) {{{
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
 " }}}
-" ##### Neomake {{{
-augroup neomake_save_linter
-	autocmd!
-  " autocmd BufWritePost *.js Neomake
-	" autocmd BufWritePost *.py Neomake
-	" autocmd BufWritePost *.rb Neomake
-	" autocmd BufWritePost *.pp Neomake
-	" autocmd BufWritePost *.erl Neomake
-	" autocmd BufWritePost *.ex Neomake
-	" autocmd BufWritePost *.exs Neomake
-augroup end
+" ##### Sharpenup {{{
+" All sharpenup mappings will begin with `<Space>os`, e.g. `<Space>osgd` for
+" :OmniSharpGotoDefinition
+" let g:sharpenup_map_prefix = '<Space>os'
+ 
+" let g:sharpenup_statusline_opts = { 'Text': '%s (%p/%P)' }
+" let g:sharpenup_statusline_opts.Highlight = 0
+" }}}
+" ##### OmniSharp {{{
+" let g:OmniSharp_popup_position = 'peek'
 
-let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
-let g:neomake_puppet_enabled_makers = ['puppet', 'puppetlint']
+" if has('nvim')
+"   let g:OmniSharp_popup_options = {
+"   \ 'winblend': 30,
+"   \ 'winhl': 'Normal:Normal,FloatBorder:ModeMsg',
+"   \ 'border': 'rounded'
+"   \}
+" else
+"   let g:OmniSharp_popup_options = {
+"   \ 'highlight': 'Normal',
+"   \ 'padding': [0],
+"   \ 'border': [1],
+"   \ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+"   \ 'borderhighlight': ['ModeMsg']
+"   \}
+" endif
+ 
+" let g:OmniSharp_popup_mappings = {
+" \ 'sigNext': '<C-n>',
+" \ 'sigPrev': '<C-p>',
+" \ 'pageDown': ['<C-f>', '<PageDown>'],
+" \ 'pageUp': ['<C-b>', '<PageUp>']
+" \}
+ 
+" let g:OmniSharp_highlight_groups = {
+" \ 'ExcludedCode': 'NonText'
+" \}
 " }}}
 " ##### coc.nvim {{{
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
@@ -682,5 +708,19 @@ autocmd BufRead,BufNewFile *.proto set filetype=proto
 autocmd FileType proto set shiftwidth=2
 autocmd FileType proto set tabstop=2
 autocmd FileType proto set expandtab
+" }}}
+" ##### Lua {{{
+autocmd BufRead,BufNewFile *.lua set filetype=lua
+
+autocmd FileType lua set shiftwidth=2
+autocmd FileType lua set tabstop=2
+autocmd FileType lua set expandtab
+" }}}
+" ##### LuaU {{{
+autocmd BufRead,BufNewFile *.luau set filetype=luau
+
+autocmd FileType luau set shiftwidth=2
+autocmd FileType luau set tabstop=2
+autocmd FileType luau set expandtab
 " }}}
 " }}}

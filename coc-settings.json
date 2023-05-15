@@ -1,23 +1,7 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "docker",
-    "dockerfile",
-    "html",
-    "json",
-    "eelixir",
-    "elixir",
-    "erlang",
-    "css",
-    "scss",
-    "sass",
-    "ruby",
-    "php",
-    "go",
-    "r",
-    "d",
-    "markdown"
-  ],
-  "r.lsp.path": "~/.asdf/shims/R",
+  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.enableMarkdown": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -52,30 +36,29 @@
       "initializationOptions": {},
       "settings": {}
     },
-    "ocaml": {
-      "command": "ocamllsp",
-      "filetypes": ["ocaml", "ml", "mli"],
-      "initializationOptions": {},
-      "settings": {}
-    },
-    "reason": {
-      "command": "ocamllsp",
-      "filetypes": ["reason", "re", "rei"],
+    "luau": {
+      "module": "/usr/bin/luau-lsp",
+      "args": ["lsp"],
+      "filetypes": ["luau"],
+      "trace.server": "verbose",
+      "rootPatterns": [],
       "initializationOptions": {},
       "settings": {}
     }
   },
-  "coc.preferences.formatOnType": true,
+  "sumneko-lua.enable": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "omnisharp.trace.server": "verbose",
   "diagnostic.checkCurrentLine": true,
   "eslint.packageManager": "npm",
-  "tsserver.formatOnType": true,
+  "prettier.enable": true,
+  "prettier.embeddedLanguageFormatting": "auto",
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
   "elixirLS.dialyzerEnabled": true,
   "elixirLS.mixEnv": "test",
   "elixirLS.mixTarget": "test",
   "elixirLS.suggestSpecs": true,
-  "prettier.embeddedLanguageFormatting": "auto",
   "solargraph.trace.server": "messages",
   "solargraph.formatting": true,
   "solargraph.logLevel": "debug",
@@ -88,6 +71,9 @@
   "suggest.floatConfig": {
     "rounded": true
   },
-  "coc.source.OmniSharp.enable": true,
-  "coc.source.OmniSharp.priority": 1
+  "java.enabled": true,
+  "java.completion.enabled": true,
+  "java.format.enabled": true,
+  "java.server.launchMode": "Standard",
+  "java.project.importOnFirstTimeStartup": "automatic"
 }
