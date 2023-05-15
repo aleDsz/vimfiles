@@ -6,3 +6,4 @@ bundle/
 .init.vim-rplugin~
 .-rplugin~
 plugged
+.luarc.json
