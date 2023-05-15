@@ -178,7 +178,6 @@ lspconfig.jsonls.setup {
 -- Lua
 lspconfig.lua_ls.setup {
 	capabilities = capabilities,
-	filetypes = { "lua", "luau" },
 	on_load = on_load,
 	settings = {
 		Lua = {
@@ -201,7 +200,6 @@ lspconfig.lua_ls.setup {
 -- LuaU
 lspconfig.luau_lsp.setup {
 	capabilities = capabilities,
-	filetypes = { "luau" },
 	on_load = on_load,
 }
 
