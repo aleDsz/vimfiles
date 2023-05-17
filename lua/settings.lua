@@ -89,7 +89,10 @@ vim.opt.statusline = [[
 vim.opt.autoread = true
 
 -- Enable syntax highlighting
--- vim.opt.syntax = 'on'
+vim.opt.syntax = 'on'
+
+-- Enable IncSearch
+vim.opt.incsearch = true
 
 -- Disable mouse
 vim.opt.mouse = nil

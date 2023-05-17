@@ -1,11 +1,14 @@
 local prettier = require("prettier")
 
-require("prettier").setup {
+require("prettier").setup({
 	bin = "prettier",
 	filetypes = {
 		"css",
+		"eex",
 		"elixir",
+		"erlang",
 		"graphql",
+		"heex",
 		"html",
 		"javascript",
 		"javascriptreact",
@@ -17,4 +20,4 @@ require("prettier").setup {
 		"typescriptreact",
 		"yaml",
 	},
-}
+})

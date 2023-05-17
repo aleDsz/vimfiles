@@ -1,11 +1,11 @@
-require('mason').setup {}
-require('mason-lspconfig').setup { automatic_installation = true }
+require("mason").setup({})
+require("mason-lspconfig").setup({ automatic_installation = true })
 
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
 -- The nvim-cmp almost supports LSP's capabilities so
 -- You should advertise it to LSP servers..
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- `on_attach` callback will be called after a language server
 -- instance has been attached to an open buffer with matching filetype
@@ -15,94 +15,94 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true }
 	local kmap = vim.api.nvim_buf_set_keymap
 
-	kmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-	kmap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-	kmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-	kmap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-	kmap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-	kmap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-	kmap(bufnr, 'n', '<leader>cf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+	kmap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	kmap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	kmap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	kmap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	kmap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	kmap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	kmap(bufnr, "n", "<leader>cf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 -- ASM
-lspconfig.asm_lsp.setup {
+lspconfig.asm_lsp.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Bash
-lspconfig.bashls.setup {
+lspconfig.bashls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- C/C++
-lspconfig.ccls.setup {
+lspconfig.ccls.setup({
 	capabilities = capabilities,
-	cmd = { 'ccls' },
-	filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+	cmd = { "ccls" },
+	filetypes = { "c", "cpp", "objc", "objcpp" },
 	init_options = {
 		index = { threads = 12 },
-		clang = { excludeArgs = { '-frounding-math' } },
-		cache = { directory = '.ccls-cache' },
+		clang = { excludeArgs = { "-frounding-math" } },
+		cache = { directory = ".ccls-cache" },
 		client = { snippetSupport = true },
-		compilationDatabaseDirectory = 'build'
+		compilationDatabaseDirectory = "build",
 	},
 	on_load = on_load,
-}
+})
 
 -- C#
-lspconfig.csharp_ls.setup {
+lspconfig.csharp_ls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- CMake
-lspconfig.cmake.setup {
+lspconfig.cmake.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Crystal
-lspconfig.crystalline.setup {
+lspconfig.crystalline.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- CSS
-lspconfig.cssls.setup {
+lspconfig.cssls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- CSS Modules
-lspconfig.cssmodules_ls.setup {
+lspconfig.cssmodules_ls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- D
-lspconfig.serve_d.setup {
+lspconfig.serve_d.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Dockerfile
-lspconfig.dockerls.setup {
+lspconfig.dockerls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Docker Compose
-lspconfig.docker_compose_language_service.setup {
+lspconfig.docker_compose_language_service.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Elixir
-lspconfig.elixirls.setup {
+lspconfig.elixirls.setup({
 	capabilities = capabilities,
-	cmd = { '/home/aledsz/.elixir-ls/language_server.sh' },
+	cmd = { "/home/aledsz/.elixir-ls/language_server.sh" },
 	on_attach = on_attach,
 	settings = {
 		elixirLS = {
@@ -112,108 +112,108 @@ lspconfig.elixirls.setup {
 			suggestSpecs = true,
 		},
 	},
-}
+})
 
 -- Erlang
 -- TODO: Make it work
 -- lspconfig.erlangls.setup {}
 
 -- Eslint
-lspconfig.eslint.setup {
+lspconfig.eslint.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
-		vim.api.nvim_create_autocmd('BufWritePre', {
+		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,
-			command = 'EslintFixAll',
+			command = "EslintFixAll",
 		})
 	end,
 	settings = {
-		packageManager = 'npm'
-	}
-}
+		packageManager = "npm",
+	},
+})
 
 -- Go
-lspconfig.gopls.setup {
+lspconfig.gopls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Gradle
-lspconfig.gradle_ls.setup {
+lspconfig.gradle_ls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- GraphQL
-lspconfig.graphql.setup {
+lspconfig.graphql.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- HTML
-lspconfig.html.setup {
+lspconfig.html.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Java
-lspconfig.java_language_server.setup {
+lspconfig.java_language_server.setup({
 	capabilities = capabilities,
-	cmd = { '/usr/bin/java-language-server' },
+	cmd = { "/usr/bin/java-language-server" },
 	on_load = on_load,
-}
+})
 
 -- Javascript & Typescript
-lspconfig.tsserver.setup {
+lspconfig.tsserver.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- JSON
-lspconfig.jsonls.setup {
+lspconfig.jsonls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Lua
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
 	settings = {
 		Lua = {
 			runtime = {
-				version = 'LuaJIT',
+				version = "LuaJIT",
 			},
 			diagnostics = {
-				globals = { 'vim' },
+				globals = { "vim" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file('', true),
+				library = vim.api.nvim_get_runtime_file("", true),
 			},
 			telemetry = {
 				enable = false,
 			},
 		},
 	},
-}
+})
 
 -- LuaU
-lspconfig.luau_lsp.setup {
+lspconfig.luau_lsp.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Markdown
-lspconfig.marksman.setup {
+lspconfig.marksman.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- NeoCMake
-lspconfig.neocmake.setup {
+lspconfig.neocmake.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- OCaml
 -- TODO: Make it work
@@ -234,19 +234,19 @@ lspconfig.neocmake.setup {
 -- }
 
 -- ReasonML
-lspconfig.reason_ls.setup {
+lspconfig.reason_ls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Ruby
-lspconfig.solargraph.setup {
+lspconfig.solargraph.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Rust
-lspconfig.rls.setup {
+lspconfig.rls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
 	settings = {
@@ -256,16 +256,16 @@ lspconfig.rls.setup {
 			all_features = true,
 		},
 	},
-}
+})
 
 -- SQL
-lspconfig.sqlls.setup {
+lspconfig.sqlls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- Tailwind
-lspconfig.tailwindcss.setup {
+lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
 	filetypes = { "html", "elixir", "eelixir", "heex" },
 	init_options = {
@@ -285,22 +285,22 @@ lspconfig.tailwindcss.setup {
 			},
 		},
 	},
-}
+})
 
 -- Terraform
-lspconfig.terraform_lsp.setup {
+lspconfig.terraform_lsp.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- VIM
-lspconfig.vimls.setup {
+lspconfig.vimls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})
 
 -- YAML
-lspconfig.yamlls.setup {
+lspconfig.yamlls.setup({
 	capabilities = capabilities,
 	on_load = on_load,
-}
+})

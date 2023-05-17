@@ -1,101 +1,92 @@
 -- Tabs
-vim.cmd("nnoremap <leader>t :tabnew<cr>")
-vim.cmd("nnoremap <leader>te :tabedit")
-vim.cmd("nnoremap <leader>tc :tabclose")
-vim.cmd("nnoremap <leader>tn :tabnext<cr>")
-vim.cmd("nnoremap <leader>tp :tabprevious<cr>")
+vim.api.nvim_set_keymap("n", "<leader>t", ":tabnew<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>te", ":tabedit<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tp", ":tabprevious<CR>", { noremap = true })
 
 -- Line movement
 -- Go to start of line with H and to the end with L
-vim.cmd("noremap H ^")
-vim.cmd("noremap L $")
-
--- Emacs bindings in command-line mode
-vim.cmd("cnoremap <C-A> <home>")
-vim.cmd("cnoremap <C-E> <end>")
+vim.api.nvim_set_keymap("", "H", "^", { noremap = true })
+vim.api.nvim_set_keymap("", "L", "$", { noremap = true })
 
 -- Split windows
 -- Move around easily
-vim.cmd("nnoremap <C-h> <C-w>h")
-vim.cmd("nnoremap <C-j> <C-w>j")
-vim.cmd("nnoremap <C-k> <C-w>k")
-vim.cmd("nnoremap <C-l> <C-w>l")
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 
 -- Resize
-vim.cmd("nnoremap <silent> <Leader>+ :vertical resize +5<CR>")
-vim.cmd("nnoremap <silent> <Leader>- :vertical resize -5<CR>")
+vim.api.nvim_set_keymap("n", "<leader>+", ":vertical resize +5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>-", ":vertical resize -5<CR>", { noremap = true, silent = true })
 
 -- Folding
 -- Toggles folding with space
-vim.cmd("nnoremap <Space> za")
+vim.api.nvim_set_keymap("n", "<Space>", "za", { noremap = true })
 
 -- Open all folds
-vim.cmd("nnoremap zO zR")
+vim.api.nvim_set_keymap("n", "zO", "zR", { noremap = true })
 
 -- Close all folds
-vim.cmd("nnoremap zC zM")
+vim.api.nvim_set_keymap("n", "zC", "zM", { noremap = true })
 
 -- Close current fold
-vim.cmd("nnoremap zc zc")
+vim.api.nvim_set_keymap("n", "zc", "zc", { noremap = true })
 
 -- Close all folds except the current one
-vim.cmd("nnoremap zf mzzMzvzz")
+vim.api.nvim_set_keymap("n", "zf", "mzzMzvzz", { noremap = true })
 
 -- Search
-vim.cmd("map /  <Plug>(incsearch-forward)")
-vim.cmd("map ?  <Plug>(incsearch-backward)")
-vim.cmd("map g/ <Plug>(incsearch-stay)")
+vim.api.nvim_set_keymap("", "<leader>sf", "<PLUG>(incsearch-forward)", {})
+vim.api.nvim_set_keymap("", "<leader>sb", "<PLUG>(incsearch-backward)", {})
+vim.api.nvim_set_keymap("", "<leader>ss", "<PLUG>(incsearch-stay)", {})
 
 -- Spell
-vim.cmd("nnoremap ,sc :set spell!<cr>")
+vim.api.nvim_set_keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true })
 
 -- Misc
 -- Edit and load vimrc/gvimrc
--- vim.cmd("nnoremap <leader>eg :vsplit $MYGVIMRC<cr>")
--- vim.cmd("nnoremap <leader>sg :source $MYGVIMRC<cr>")
--- vim.cmd("nnoremap <leader>ev :vsplit $MYVIMRC<cr>")
--- vim.cmd("nnoremap <leader>sv :source $MYVIMRC<cr>")
+vim.api.nvim_set_keymap("n", "<leader>ev", "<CMD>e $MYVIMRC<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>sv", ":luafile $MYVIMRC<CR>", { noremap = true, silent = true })
 
 -- Wrap current paragraph
-vim.cmd("noremap <leader>w gqap")
+vim.api.nvim_set_keymap("", "<leader>w", "gqap", { noremap = true })
 
 -- Toggles hlsearch
-vim.cmd("nnoremap <leader>hs :set hlsearch!<cr>")
+vim.api.nvim_set_keymap("n", "<leader>hs", ":set hlsearch!<CR>", { noremap = true })
 
 -- Maps <C-C> to <esc>
-vim.cmd("noremap <C-C> <esc>")
-
--- Go full-screen
--- vim.cmd("nnoremap <leader>fs :set lines=999 columns=9999<cr>")
+vim.api.nvim_set_keymap("", "<C-C>", "<ESC>", { noremap = true })
 
 -- Set current file executable
-vim.cmd("nnoremap <leader>xx :!chmod +x %<cr>")
-vim.cmd("nnoremap <leader>XX :!chmod -x %<cr>")
-
--- Close Quickfix and Preview
--- vim.cmd("nnoremap <leader>q :pclose<cr>:cclose<cr>")
+vim.api.nvim_set_keymap("n", "<leader>xx", ":!chmod +x %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>XX", ":!chmod -x %<CR>", { noremap = true })
 
 -- OS Clipboard
-vim.cmd('nnoremap <leader>y "+yy')
-vim.cmd('vnoremap <leader>y "+yy')
-vim.cmd('vnoremap <leader>v "*p')
-vim.cmd('vnoremap <leader>V "*P')
-vim.cmd('nnoremap <leader>v "*p')
-vim.cmd('nnoremap <leader>V "*P')
+vim.api.nvim_set_keymap("n", "<leader>y", '"+yy', { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>y", '"+yy', { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>v", '"*p', { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>V", '"*P', { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>v", '"*p', { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>V", '"*P', { noremap = true })
 
--- Plugins
+-- PLUGins
 -- LazyGit
-vim.cmd("nnoremap <silent> <leader>lg :LazyGit<CR>")
+vim.api.nvim_set_keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true })
 
 -- NERDTree
-vim.cmd("noremap <leader>ft :NERDTreeToggle<CR>")
+vim.api.nvim_set_keymap("", "<leader>ft", ":NERDTreeToggle<CR>", { noremap = true })
 
 -- Yankstack
-vim.cmd("nmap <C-M> <Plug>yankstack_substitute_older_paste")
-vim.cmd("nmap <C-N> <Plug>yankstack_substitute_newer_paste")
+vim.api.nvim_set_keymap("n", "<C-M>", "<PLUG>yankstack_substitute_older_paste", {})
+vim.api.nvim_set_keymap("n", "<C-N>", "<PLUG>yankstack_substitute_newer_paste", {})
 
 -- Telescope
-vim.cmd("nnoremap <C-p> <cmd>Telescope find_files<cr>")
-vim.cmd("nnoremap <leader>fs <cmd>Telescope live_grep<cr>")
-vim.cmd("nnoremap <leader>fb <cmd>Telescope buffers<cr>")
-vim.cmd("nnoremap <leader>fh <cmd>Telescope help_tags<cr>")
+vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>Telescope find_files<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fs", "<CMD>Telescope live_grep<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { noremap = true })
+
+-- Inlay Hints
+vim.api.nvim_set_keymap("n", "<leader>ih", ":lua require('lsp-inlayhints').toggle()<CR>", { noremap = true })

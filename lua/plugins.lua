@@ -27,6 +27,7 @@ Plug("andweeb/presence.nvim")
 Plug("ryanoasis/vim-devicons")
 Plug("chrisbra/unicode.vim")
 Plug("haya14busa/incsearch.vim")
+Plug("tjdevries/colorbuddy.vim")
 
 -- Copy&Paste
 Plug("ConradIrwin/vim-bracketed-paste")
@@ -48,6 +49,8 @@ Plug("nvim-neotest/neotest")
 
 -- Theme
 Plug("dracula/vim")
+Plug("bkegley/gloombuddy")
+Plug("edeneast/nightfox.nvim")
 
 -- LSP
 Plug("neovim/nvim-lspconfig")
@@ -60,8 +63,8 @@ Plug("mfussenegger/nvim-dap")
 Plug("rcarriga/nvim-dap-ui")
 
 -- Snippets
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug("hrsh7th/cmp-vsnip")
+Plug("hrsh7th/vim-vsnip")
 
 -- Code Completion
 Plug("hrsh7th/nvim-cmp")
@@ -96,7 +99,7 @@ Plug("Issafalcon/neotest-dotnet")
 -- Plug 'ekalinin/Dockerfile.vim'
 
 -- Elixir
-Plug 'elixir-lang/vim-elixir'
+Plug("elixir-lang/vim-elixir")
 Plug("jfpedroza/neotest-elixir")
 
 -- Erlang
@@ -114,7 +117,8 @@ Plug("nvim-neotest/neotest-go")
 Plug("nvim-neotest/neotest-jest")
 
 -- LuaU
-Plug 'polychromatist/luau-vim'
+Plug("polychromatist/luau-vim")
+Plug("lopi-py/luau-lsp.nvim")
 
 -- Markdown
 -- Plug 'nelstrom/vim-markdown-folding'
