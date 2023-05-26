@@ -21,7 +21,8 @@ require("plugins.lazygit")
 require("plugins.lsp-inlayhints")
 require("plugins.luau-lsp")
 require("plugins.mason")
-require("plugins.nerdtree")
+require("plugins.neo-tree")
+-- require("plugins.nerdtree")
 require("plugins.nvim-cmp")
 require("plugins.nvim-treesitter")
 require("plugins.numbertoggle")
@@ -38,5 +39,9 @@ require("lsp.lua_ls")
 require("lsp.rls")
 require("lsp.tailwindcss")
 
+-- setup:Plugin themes
+require("theme.neo-tree")
+
 -- Start with NERDTree openned
-vim.cmd([[ autocmd VimEnter * NERDTree ]])
+-- vim.cmd([[ autocmd VimEnter * NERDTree ]])
+-- vim.cmd([[ autocmd VimEnter * NERDTree ]])

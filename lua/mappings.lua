@@ -76,7 +76,10 @@ vim.api.nvim_set_keymap("n", "<leader>V", '"*P', { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true })
 
 -- NERDTree
-vim.api.nvim_set_keymap("", "<leader>ft", ":NERDTreeToggle<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("", "<leader>ft", ":NERDTreeToggle<CR>", { noremap = true })
+
+-- NeoTree
+vim.api.nvim_set_keymap("", "<leader>ft", ":Neotree toggle float<CR>", { noremap = true })
 
 -- Yankstack
 vim.api.nvim_set_keymap("n", "<C-M>", "<PLUG>yankstack_substitute_older_paste", {})

@@ -4,14 +4,16 @@ vim.call("plug#begin", "~/.vim/plugged")
 
 -- Base
 Plug("nvim-lua/plenary.nvim")
+Plug("MunifTanjim/nui.nvim")
 
 -- Status bar/line
 Plug("vim-airline/vim-airline")
 Plug("vim-airline/vim-airline-themes")
 
 -- Files and Folders
-Plug("scrooloose/nerdtree")
+-- Plug("scrooloose/nerdtree")
 Plug("nvim-telescope/telescope.nvim")
+Plug("nvim-neo-tree/neo-tree.nvim")
 
 -- Editor
 Plug("jeffkreeftmeijer/vim-numbertoggle")
