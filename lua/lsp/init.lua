@@ -12,11 +12,11 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	buf_set_keymap("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "<leader>gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "<leader>gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "<leader>gi", ":lua vim.lsp.buf.references()<CR>", opts)
+	buf_set_keymap("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
+	buf_set_keymap("n", "<space>D", ":lua vim.lsp.buf.type_definition()<CR>", opts)
 	buf_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<C-k>", ":lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<leader>cf", ":lua vim.lsp.buf.format()<CR>", opts)
@@ -40,6 +40,8 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
 
 	return vim.lsp.util.open_floating_preview(markdown_lines, 'markdown', config)
 end
+
+vim.lsp.set_log_level("debug")
 
 -- The nvim-cmp almost supports LSP's capabilities so
 -- You should advertise it to LSP servers..
