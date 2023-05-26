@@ -130,7 +130,7 @@ Plug("lopi-py/luau-lsp.nvim")
 -- PHP
 -- Plug 'StanAngeloff/php.vim'
 -- Plug 'noahfrederick/vim-composer'
--- Plug 'jwalton512/vim-blade'
+Plug("jwalton512/vim-blade")
 Plug("olimorris/neotest-phpunit")
 
 -- R
