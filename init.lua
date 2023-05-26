@@ -28,5 +28,14 @@ require("plugins.numbertoggle")
 require("plugins.prettier")
 require("plugins.yankstack")
 
+-- setup:LSP custom settings
+require("lsp.ccls")
+require("lsp.elixirls")
+require("lsp.erlangls")
+require("lsp.java_language_server")
+require("lsp.lua_ls")
+require("lsp.rls")
+require("lsp.tailwindcss")
+
 -- Start with NERDTree openned
 vim.cmd([[ autocmd VimEnter * NERDTree ]])
