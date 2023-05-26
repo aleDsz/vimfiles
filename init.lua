@@ -29,7 +29,6 @@ require("plugins.prettier")
 require("plugins.yankstack")
 
 -- setup:LSP custom settings
-require("lsp.ccls")
 require("lsp.elixirls")
 require("lsp.erlangls")
 require("lsp.java_language_server")
