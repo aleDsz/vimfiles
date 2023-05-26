@@ -28,6 +28,7 @@ Plug("ryanoasis/vim-devicons")
 Plug("chrisbra/unicode.vim")
 Plug("haya14busa/incsearch.vim")
 Plug("tjdevries/colorbuddy.vim")
+Plug("startup-nvim/startup.nvim")
 
 -- Copy&Paste
 Plug("ConradIrwin/vim-bracketed-paste")
