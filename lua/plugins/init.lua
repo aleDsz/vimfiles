@@ -48,7 +48,8 @@ Plug("lvimuser/lsp-inlayhints.nvim")
 Plug("nvim-neotest/neotest")
 
 -- Theme
-Plug("dracula/vim")
+-- Plug("dracula/vim")
+Plug("aledsz/dracula.vim")
 Plug("bkegley/gloombuddy")
 Plug("edeneast/nightfox.nvim")
 
