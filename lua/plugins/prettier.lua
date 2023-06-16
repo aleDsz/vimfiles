@@ -1,8 +1,7 @@
-local prettier = require("prettier")
-
 require("prettier").setup({
 	bin = "prettier",
 	filetypes = {
+		"blade",
 		"css",
 		"eex",
 		"elixir",
@@ -15,6 +14,8 @@ require("prettier").setup({
 		"json",
 		"less",
 		"markdown",
+		"php",
+		"sass",
 		"scss",
 		"typescript",
 		"typescriptreact",
