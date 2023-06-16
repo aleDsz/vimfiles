@@ -51,6 +51,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local servers = {
 	"asm_lsp",
 	"bashls",
+	"bufls",
 	"clangd",
 	"csharp_ls",
 	"cmake",
