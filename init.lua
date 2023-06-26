@@ -38,6 +38,7 @@ require("lsp.intelephense")
 require("lsp.java_language_server")
 require("lsp.jsonls")
 require("lsp.lua_ls")
+require("lsp.luau_lsp")
 require("lsp.rls")
 require("lsp.tailwindcss")
 
@@ -45,5 +46,4 @@ require("lsp.tailwindcss")
 require("theme.neo-tree")
 
 -- Start with NERDTree openned
--- vim.cmd([[ autocmd VimEnter * NERDTree ]])
 -- vim.cmd([[ autocmd VimEnter * NERDTree ]])
