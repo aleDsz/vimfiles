@@ -42,6 +42,9 @@ require("lsp.luau_lsp")
 require("lsp.rls")
 require("lsp.tailwindcss")
 
+-- setup:After LSP setup
+require("autocmd")
+
 -- setup:Plugin themes
 require("theme.neo-tree")
 
