@@ -31,6 +31,7 @@ Plug("chrisbra/unicode.vim")
 Plug("haya14busa/incsearch.vim")
 Plug("tjdevries/colorbuddy.vim")
 Plug("startup-nvim/startup.nvim")
+Plug("wakatime/vim-wakatime")
 
 -- Copy&Paste
 Plug("ConradIrwin/vim-bracketed-paste")
