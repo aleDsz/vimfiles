@@ -33,7 +33,7 @@ require("plugins.yankstack")
 -- setup:LSP custom settings
 require("lsp.csharp_ls")
 require("lsp.elixirls")
-require("lsp.erlangls")
+-- require("lsp.erlangls")
 require("lsp.intelephense")
 require("lsp.java_language_server")
 require("lsp.jsonls")
