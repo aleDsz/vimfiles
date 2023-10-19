@@ -92,4 +92,16 @@ vim.api.nvim_set_keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { norem
 vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { noremap = true })
 
 -- Inlay Hints
-vim.api.nvim_set_keymap("n", "<leader>ih", ":lua require('lsp-inlayhints').toggle()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ih", "<CMD>lua require('lsp-inlayhints').toggle()<CR>", { noremap = true })
+
+-- LSP
+vim.api.nvim_set_keymap("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>TD", "<CMD>lua vim.lsp.buf.type_definition()<CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
