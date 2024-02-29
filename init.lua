@@ -39,7 +39,7 @@ require("lsp.java_language_server")
 require("lsp.jsonls")
 require("lsp.lua_ls")
 require("lsp.luau_lsp")
-require("lsp.rls")
+require("lsp.rust_analyzer")
 require("lsp.tailwindcss")
 
 -- setup:After LSP setup
