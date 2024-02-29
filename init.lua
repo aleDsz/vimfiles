@@ -48,4 +48,5 @@ require("lsp.tailwindcss")
 require("autocmd")
 
 -- setup:Plugin themes
+require("theme.elixir")
 require("theme.neo-tree")
