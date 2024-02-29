@@ -91,9 +91,6 @@ vim.api.nvim_set_keymap("n", "<leader>fs", "<CMD>Telescope live_grep<CR>", { nor
 vim.api.nvim_set_keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { noremap = true })
 
--- Inlay Hints
-vim.api.nvim_set_keymap("n", "<leader>ih", "<CMD>lua require('lsp-inlayhints').toggle()<CR>", { noremap = true })
-
 -- LSP
 vim.api.nvim_set_keymap("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })

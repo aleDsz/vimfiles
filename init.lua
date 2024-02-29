@@ -36,7 +36,6 @@ require("plugins.yankstack")
 -- setup:LSP custom settings
 require("lsp.csharp_ls")
 require("lsp.elixirls")
--- require("lsp.erlangls")
 require("lsp.intelephense")
 require("lsp.java_language_server")
 require("lsp.jsonls")
@@ -50,6 +49,3 @@ require("autocmd")
 
 -- setup:Plugin themes
 require("theme.neo-tree")
-
--- Start with NERDTree openned
--- vim.cmd([[ autocmd VimEnter * NERDTree ]])
