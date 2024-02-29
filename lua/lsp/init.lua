@@ -19,6 +19,14 @@ end
 
 vim.lsp.set_log_level("debug")
 
+local on_attach = function(client, bufnr)
+  require 'completion'.on_attach(client)
+
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(bufnr, true)
+  end
+end
+
 -- The nvim-cmp almost supports LSP's capabilities so
 -- You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -71,6 +79,7 @@ require("mason-lspconfig").setup({
 for _, name in pairs(servers) do
   require('lspconfig')[name].setup {
     capabilities = capabilities,
+    on_attach = on_attach,
     autostart = true,
   }
 end
