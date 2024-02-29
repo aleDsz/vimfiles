@@ -50,10 +50,11 @@ Plug("lvimuser/lsp-inlayhints.nvim")
 
 -- Tests
 Plug("nvim-neotest/neotest")
+Plug("folke/neodev.nvim")
 
 -- Theme
--- Plug("dracula/vim")
-Plug("aledsz/dracula.vim")
+Plug("dracula/vim", { ["as"] = "dracula" })
+-- Plug("aledsz/dracula.vim")
 Plug("bkegley/gloombuddy")
 Plug("edeneast/nightfox.nvim")
 
@@ -104,7 +105,7 @@ Plug("Issafalcon/neotest-dotnet")
 -- Plug 'ekalinin/Dockerfile.vim'
 
 -- Elixir
-Plug("elixir-lang/vim-elixir")
+-- Plug("elixir-lang/vim-elixir")
 Plug("jfpedroza/neotest-elixir")
 
 -- Erlang
@@ -124,6 +125,7 @@ Plug("nvim-neotest/neotest-jest")
 -- LuaU
 Plug("polychromatist/luau-vim")
 Plug("lopi-py/luau-lsp.nvim")
+Plug("nvim-neotest/neotest-plenary")
 
 -- Markdown
 -- Plug 'nelstrom/vim-markdown-folding'

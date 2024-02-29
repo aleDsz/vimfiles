@@ -10,19 +10,22 @@ require("settings")
 -- setup:Mappings
 require("mappings")
 
+-- setup:NeoDev (we need to setup before LSP config)
+require("plugins.neodev")
+
 -- setup:Language Server Protocol
 require("lsp")
 
 -- setup:Plugin settings
 require("plugins.airline")
+require("plugins.dap")
 require("plugins.editorconfig")
 require("plugins.formatter")
 require("plugins.lazygit")
-require("plugins.lsp-inlayhints")
 require("plugins.luau-lsp")
 require("plugins.mason")
 require("plugins.neo-tree")
--- require("plugins.nerdtree")
+require("plugins.neotest")
 require("plugins.nvim-cmp")
 require("plugins.nvim-treesitter")
 require("plugins.numbertoggle")
