@@ -30,6 +30,7 @@ require("plugins.nvim-cmp")
 require("plugins.nvim-treesitter")
 require("plugins.numbertoggle")
 require("plugins.prettier")
+require("plugins.rainbow-delimiters")
 require("plugins.startup")
 require("plugins.yankstack")
 

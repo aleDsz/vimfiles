@@ -37,12 +37,12 @@ Plug("wakatime/vim-wakatime")
 Plug("ConradIrwin/vim-bracketed-paste")
 Plug("maxbrunsfeld/vim-yankstack")
 
--- Livt/Syntax
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+-- Lint/Syntax
 Plug("nvim-treesitter/nvim-treesitter-textobjects")
 Plug("nvim-treesitter/nvim-treesitter-refactor")
 Plug("JoosepAlviste/nvim-ts-context-commentstring")
-Plug("p00f/nvim-ts-rainbow")
+Plug("hiphish/rainbow-delimiters.nvim")
+Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("spywhere/detect-language.nvim")
 Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("MunifTanjim/prettier.nvim")
