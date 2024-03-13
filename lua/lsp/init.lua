@@ -33,15 +33,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local servers = {
-  "angularls",
-  "ansiblels",
   "asm_lsp",
-  "bashls",
   "bufls",
   "clangd",
   "cmake",
   "crystalline",
-  "csharp_ls",
   "cssls",
   "cssmodules_ls",
   "dockerls",
@@ -52,7 +48,6 @@ local servers = {
   "graphql",
   "html",
   "intelephense",
-  "java_language_server",
   "jsonls",
   "lua_ls",
   "luau_lsp",
@@ -61,11 +56,10 @@ local servers = {
   "reason_ls",
   "rust_analyzer",
   "serve_d",
-  "solargraph",
   "sqlls",
-  "tailwindcss",
+  -- "tailwindcss",
   "terraformls",
-  "tsserver",
+  -- "tsserver",
   "vimls",
   "yamlls"
 }
