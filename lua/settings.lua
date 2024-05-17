@@ -1,9 +1,6 @@
 -- Font
 vim.opt.guifont = { "VictorMono Nerd Font", ":h14" }
 
--- Don't show right scrollbar
-vim.opt.guioptions = nil
-
 -- NeoVim Options
 -- Display incomplete commands.
 vim.opt.showcmd = false

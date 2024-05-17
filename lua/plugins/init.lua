@@ -38,8 +38,8 @@ Plug("ConradIrwin/vim-bracketed-paste")
 Plug("maxbrunsfeld/vim-yankstack")
 
 -- Livt/Syntax
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
-Plug("nvim-treesitter/nvim-treesitter-textobjects")
+Plug("nvim-treesitter/nvim-treesitter", { ["branch"] = "master", ["do"] = ":TSUpdate" })
+Plug("nvim-treesitter/nvim-treesitter-textobjects", { ["branch"] = "master" })
 Plug("nvim-treesitter/nvim-treesitter-refactor")
 Plug("JoosepAlviste/nvim-ts-context-commentstring")
 Plug("p00f/nvim-ts-rainbow")
@@ -49,6 +49,7 @@ Plug("MunifTanjim/prettier.nvim")
 Plug("lvimuser/lsp-inlayhints.nvim")
 
 -- Tests
+Plug("nvim-neotest/nvim-nio")
 Plug("nvim-neotest/neotest")
 Plug("folke/neodev.nvim")
 
