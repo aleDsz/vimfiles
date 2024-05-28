@@ -44,7 +44,6 @@ Plug("nvim-treesitter/nvim-treesitter-refactor")
 Plug("JoosepAlviste/nvim-ts-context-commentstring")
 Plug("p00f/nvim-ts-rainbow")
 Plug("spywhere/detect-language.nvim")
-Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("MunifTanjim/prettier.nvim")
 Plug("lvimuser/lsp-inlayhints.nvim")
 
@@ -55,7 +54,6 @@ Plug("folke/neodev.nvim")
 
 -- Theme
 Plug("dracula/vim", { ["as"] = "dracula" })
--- Plug("aledsz/dracula.vim")
 Plug("bkegley/gloombuddy")
 Plug("edeneast/nightfox.nvim")
 
