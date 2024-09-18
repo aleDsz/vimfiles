@@ -20,11 +20,7 @@ end
 vim.lsp.set_log_level("debug")
 
 local on_attach = function(client, bufnr)
-  require 'completion'.on_attach(client)
-
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(bufnr, true)
-  end
+  vim.lsp.inlay_hint.enable(true)
 end
 
 -- The nvim-cmp almost supports LSP's capabilities so
@@ -38,7 +34,6 @@ local servers = {
   "asm_lsp",
   "bashls",
   "bufls",
-  "clangd",
   "cmake",
   "crystalline",
   "csharp_ls",
