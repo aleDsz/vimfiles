@@ -109,3 +109,6 @@ vim.opt.cmdheight = 1
 
 -- Set spell lang
 vim.opt.spelllang = "en_us"
+
+-- Disable mouse
+vim.opt.mouse = ""
