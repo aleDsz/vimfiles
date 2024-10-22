@@ -41,7 +41,7 @@ local servers = {
   "cssmodules_ls",
   "dockerls",
   "docker_compose_language_service",
-  "elixirls",
+  -- "elixirls",
   "gopls",
   "gradle_ls",
   "graphql",

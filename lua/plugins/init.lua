@@ -105,6 +105,7 @@ Plug("Issafalcon/neotest-dotnet")
 
 -- Elixir
 -- Plug("elixir-lang/vim-elixir")
+Plug("elixir-tools/elixir-tools.nvim")
 Plug("jfpedroza/neotest-elixir")
 
 -- Erlang
