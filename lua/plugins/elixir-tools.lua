@@ -4,6 +4,10 @@ require("elixir").setup {
   elixirls = {
     enable = true,
     settings = require("elixir.elixirls").settings {
+      mixEnv = "test",
+      mixTarget = "host",
+      suggestSpecs = true,
+      fetchDeps = true,
       dialyzerEnabled = true,
       enableTestLenses = true,
     },
