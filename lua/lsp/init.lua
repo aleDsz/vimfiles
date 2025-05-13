@@ -60,7 +60,7 @@ local servers = {
   "sqlls",
   "tailwindcss",
   "terraformls",
-  "tsserver",
+  "ts_ls",
   "vimls",
   "yamlls"
 }
