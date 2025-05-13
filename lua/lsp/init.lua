@@ -33,7 +33,7 @@ local servers = {
   "ansiblels",
   "asm_lsp",
   "bashls",
-  "bufls",
+  "buf_ls",
   "cmake",
   "crystalline",
   "csharp_ls",
