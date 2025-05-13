@@ -32,6 +32,7 @@ require("plugins.nvim-treesitter")
 require("plugins.numbertoggle")
 require("plugins.prettier")
 require("plugins.startup")
+require("plugins.tailwind-tools")
 require("plugins.yankstack")
 
 -- setup:LSP custom settings
@@ -43,7 +44,7 @@ require("lsp.jsonls")
 require("lsp.lua_ls")
 require("lsp.luau_lsp")
 require("lsp.rust_analyzer")
-require("lsp.tailwindcss")
+-- require("lsp.tailwindcss")
 
 -- setup:After LSP setup
 require("autocmd")

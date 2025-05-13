@@ -58,7 +58,7 @@ local servers = {
   "serve_d",
   "solargraph",
   "sqlls",
-  "tailwindcss",
+  -- "tailwindcss",
   "terraformls",
   "ts_ls",
   "vimls",

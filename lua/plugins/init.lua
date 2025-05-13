@@ -152,6 +152,9 @@ Plug("olimorris/neotest-rspec")
 -- Rust
 Plug("rouge8/neotest-rust")
 
+-- Tailwind
+Plug("luckasRanarison/tailwind-tools.nvim")
+
 -- Terraform
 -- Plug 'hashivim/vim-terraform'
 
