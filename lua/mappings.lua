@@ -106,3 +106,7 @@ vim.api.nvim_set_keymap("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", 
 vim.api.nvim_set_keymap("n", "<leader>tb", "<CMD>lua require'dap'.toggle_breakpoint()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>dc", "<CMD>lua require'dap'.continue()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>td", "<CMD>lua require'dapui'.toggle()<CR>", { noremap = true, silent = true })
+
+-- AI
+vim.api.nvim_set_keymap("n", "<F1>", ":ClaudeCode<CR>", { noremap = true, silent = true, desc = "Toggle Claude Code" })
+vim.api.nvim_set_keymap("n", "<leader>cc", ":ClaudeCodeContinue<CR>", { noremap = true, silent = true, desc = "Continue Claude Code" })

@@ -18,6 +18,7 @@ require("lsp")
 
 -- setup:Plugin settings
 require("plugins.airline")
+require("plugins.claude-code")
 require("plugins.dap")
 require("plugins.editorconfig")
 -- require("plugins.elixir-tools")

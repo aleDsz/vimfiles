@@ -81,6 +81,9 @@ Plug("hrsh7th/cmp-nvim-lua")
 Plug("hrsh7th/cmp-cmdline")
 Plug("hrsh7th/cmp-nvim-lsp-document-symbol")
 
+-- AI
+Plug("greggh/claude-code.nvim")
+
 -- Languages
 -- ASM
 -- Plug 'tapichu/asm2d-vim'
