@@ -1,85 +1,23 @@
 -- Tailwind
-require("lspconfig").tailwindcss.setup({
-	filetypes = {
-		"aspnetcorerazor",
-		"astro",
-		"astro-markdown",
-		"blade",
-		"django-html",
-		"htmldjango",
-		"edge",
-		"elixir",
-		"eelixir",
-		"ejs",
-		"erb",
-		"eruby",
-		"gohtml",
-		"haml",
-		"handlebars",
-		"hbs",
-		"html",
-		"html-eex",
-		"heex",
-		"jade",
-		"leaf",
-		"liquid",
-		"markdown",
-		"mdx",
-		"mustache",
-		"njk",
-		"nunjucks",
-		"razor",
-		"slim",
-		"twig",
-		"css",
-		"less",
-		"postcss",
-		"sass",
-		"scss",
-		"stylus",
-		"sugarss",
-		"javascript",
-		"javascriptreact",
-		"reason",
-		"rescript",
-		"typescript",
-		"typescriptreact",
-		"vue",
-		"svelte",
-	},
-	root_pattern = {
-		"tailwind.config.js",
-		"tailwind.config.ts",
-		"postcss.config.js",
-		"postcss.config.ts",
-		"package.json",
-		"node_modules",
-	},
-	init_options = {
-		userLanguages = {
-			elixir = "html-eex",
-			eelixir = "html-eex",
-			heex = "html-eex",
-		},
-	},
+require("lspconfig").tailwindcss.setup {
+  cmd = { "npx", "tailwindcss-language-server", "--stdio" },
 	settings = {
 		tailwindCSS = {
-			classAttributes = { "class", "className", "classList", "ngClass" },
-			lint = {
-				cssConflict = "warning",
-				invalidApply = "error",
-				invalidConfigPath = "error",
-				invalidScreen = "error",
-				invalidTailwindDirective = "error",
-				invalidVariant = "error",
-				recommendedVariantOrder = "warning"
-			},
-			validate = true,
+      validate = true,
+      includeLanguages = {
+        heex = "html-eex",
+        eruby = "erb",
+        templ = "html",
+        htmlangular = "html",
+      },
 			experimental = {
+        configFile = { 
+          ["assets/tailwind.config.js"] = "/**/assets/tailwind.config.js" 
+        },
 				classRegex = {
 					'class[:]\\s*"([^"]*)"',
 				},
 			},
 		},
 	},
-})
+}

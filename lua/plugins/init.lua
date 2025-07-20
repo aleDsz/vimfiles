@@ -50,7 +50,6 @@ Plug("lvimuser/lsp-inlayhints.nvim")
 -- Tests
 Plug("nvim-neotest/nvim-nio")
 Plug("nvim-neotest/neotest")
-Plug("folke/neodev.nvim")
 
 -- Theme
 Plug("dracula/vim", { ["as"] = "dracula" })
@@ -105,7 +104,7 @@ Plug("Issafalcon/neotest-dotnet")
 
 -- Elixir
 -- Plug("elixir-lang/vim-elixir")
-Plug("elixir-tools/elixir-tools.nvim")
+-- Plug("elixir-tools/elixir-tools.nvim")
 Plug("jfpedroza/neotest-elixir")
 
 -- Erlang
@@ -130,6 +129,10 @@ Plug("nvim-neotest/neotest-plenary")
 -- Markdown
 -- Plug 'nelstrom/vim-markdown-folding'
 
+-- NeoVim
+Plug("folke/lazydev.nvim")
+-- Plug("folke/neodev.nvim")
+
 -- OCaml
 -- Plug('rgrinberg/vim-ocaml', { ['for'] = ['ocaml', 'opam', 'dune'] })
 
@@ -153,7 +156,7 @@ Plug("olimorris/neotest-rspec")
 Plug("rouge8/neotest-rust")
 
 -- Tailwind
-Plug("luckasRanarison/tailwind-tools.nvim")
+-- Plug("luckasRanarison/tailwind-tools.nvim")
 
 -- Terraform
 -- Plug 'hashivim/vim-terraform'
