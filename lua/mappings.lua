@@ -110,3 +110,6 @@ vim.api.nvim_set_keymap("n", "<leader>td", "<CMD>lua require'dapui'.toggle()<CR>
 -- AI
 vim.api.nvim_set_keymap("n", "<F1>", ":ClaudeCode<CR>", { noremap = true, silent = true, desc = "Toggle Claude Code" })
 vim.api.nvim_set_keymap("n", "<leader>cc", ":ClaudeCodeContinue<CR>", { noremap = true, silent = true, desc = "Continue Claude Code" })
+
+-- Completely disable Enter in normal mode
+vim.keymap.set('n', '<CR>', '<Nop>', { noremap = true, silent = true })
