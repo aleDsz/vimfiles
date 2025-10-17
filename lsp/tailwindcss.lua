@@ -1,5 +1,5 @@
--- Tailwind
-require("lspconfig").tailwindcss.setup {
+---@type vim.lsp.Config
+return {
   cmd = { "npx", "tailwindcss-language-server", "--stdio" },
 	settings = {
 		tailwindCSS = {

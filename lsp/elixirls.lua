@@ -1,5 +1,5 @@
--- Elixir
-require("lspconfig").elixirls.setup {
+---@type vim.lsp.Config
+return {
   cmd = { "/home/aledsz/.elixir-ls/language_server.sh" },
   settings = {
     elixirLS = {

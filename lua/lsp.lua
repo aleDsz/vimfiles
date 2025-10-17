@@ -17,17 +17,6 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
   return vim.lsp.util.open_floating_preview(markdown_lines, 'markdown', config)
 end
 
-vim.lsp.set_log_level("debug")
-
-local on_attach = function(client, bufnr)
-  vim.lsp.inlay_hint.enable(true)
-end
-
--- The nvim-cmp almost supports LSP's capabilities so
--- You should advertise it to LSP servers..
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 local servers = {
   "angularls",
   "ansiblels",
@@ -66,18 +55,26 @@ local servers = {
 }
 
 require("mason").setup()
-require("mason-lspconfig").setup({
+require("mason-lspconfig").setup {
   ensure_installed = servers,
   automatic_installation = true,
-})
+}
 
-for _, name in pairs(servers) do
-  require('lspconfig')[name].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    autostart = true,
-  }
-end
+-- for _, name in pairs(servers) do
+--   vim.lsp.config[name].setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     autostart = true,
+--   }
+-- end
+
+-- Godot
+-- vim.lsp.config.gdscript.setup({
+--   name = "godot",
+-- 	capabilities = capabilities,
+--   on_attach = on_attach,
+--   autostart = true,
+-- })
 
 -- TODO: Add these servers
 

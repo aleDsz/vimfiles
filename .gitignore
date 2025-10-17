@@ -7,3 +7,4 @@ bundle/
 .-rplugin~
 plugged
 .luarc.json
+.store/

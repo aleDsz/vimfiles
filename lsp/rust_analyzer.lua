@@ -1,5 +1,5 @@
--- Rust
-require("lspconfig").rust_analyzer.setup({
+---@type vim.lsp.Config
+return {
   settings = {
     ["rust-analyzer"] = {
       checkOnSave = {
@@ -21,4 +21,4 @@ require("lspconfig").rust_analyzer.setup({
       },
     },
   },
-})
+}
