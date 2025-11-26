@@ -18,7 +18,6 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
 end
 
 local servers = {
-  "angularls",
   "ansiblels",
   "asm_lsp",
   "bashls",
