@@ -41,6 +41,8 @@ local servers = {
   -- "luau_lsp",
   "marksman",
   "neocmake",
+  "nil",
+  -- "nixd",
   -- "reason_ls",
   "rust_analyzer",
   -- "serve_d",
