@@ -14,6 +14,7 @@ require("mappings")
 -- require("plugins.neodev")
 
 -- setup:Language Server Protocol
+require("plugins.mason")
 require("lsp")
 
 -- setup:Plugin settings
@@ -25,7 +26,6 @@ require("plugins.editorconfig")
 require("plugins.formatter")
 require("plugins.lazygit")
 require("plugins.luau-lsp")
-require("plugins.mason")
 require("plugins.neo-tree")
 require("plugins.neotest")
 require("plugins.nvim-cmp")
