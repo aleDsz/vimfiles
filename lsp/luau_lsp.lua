@@ -7,13 +7,13 @@ return {
 	settings = {
 		Lua = {
 			runtime = {
-				version = "LuaJIT",
+				version = "Luau",
 			},
 			diagnostics = {
 				globals = { "vim" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = vim.api.nvim_get_runtime_file("luau", true),
 			},
 			telemetry = {
 				enable = false,

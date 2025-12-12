@@ -4,6 +4,7 @@ local util = require("lspconfig.util")
 return {
 	filetype = { "lua" },
 	root_dir = util.root_pattern(
+    "default.project.json",
 		".luarc.json",
 		".luarc.jsonc",
 		".luacheckrc",
@@ -21,7 +22,7 @@ return {
 				globals = { "vim" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = vim.api.nvim_get_runtime_file("lua", true),
 			},
 			telemetry = {
 				enable = false,
