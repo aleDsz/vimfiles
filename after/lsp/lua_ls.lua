@@ -1,3 +1,8 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
 ---@type vim.lsp.Config
 return {
   cmd = { "lua-language-server" },
@@ -16,14 +21,20 @@ return {
     Lua = {
       runtime = {
         version = "LuaJIT",
+        path = runtime_path,
       },
       diagnostics = {
         enable = true,
-				globals = { "hs", "vim", "it", "describe", "before_each", "after_each" },
+				globals = { "vim" },
         disable =  { "lowercase-global" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("lua", true),
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
+          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+        },
         maxPreload = 9999,
         preloadFileSize = 9999,
 			},

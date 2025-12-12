@@ -1,3 +1,8 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.luau')
+table.insert(runtime_path, 'lua/?/init.luau')
+
 ---@type vim.lsp.Config
 return {
 	filetype = { "luau" },
@@ -15,10 +20,11 @@ return {
 		Luau = {
 			runtime = {
         version = "Luau",
+        path = runtime_path,
       },
       diagnostics = {
         enable = true,
-				globals = { "hs", "vim", "it", "describe", "before_each", "after_each" },
+				globals = { "vim" },
         disable =  { "lowercase-global" },
 			},
 			workspace = {
