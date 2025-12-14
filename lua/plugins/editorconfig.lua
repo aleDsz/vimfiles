@@ -1,1 +1,2 @@
-vim.g.EditorConfig_exclude_patterns = { "fugitive://.*", "scp://.*" }
+---@type lazy.types.LazyPluginBase
+return { "editorconfig/editorconfig-vim" }

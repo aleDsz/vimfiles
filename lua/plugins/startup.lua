@@ -1,52 +1,65 @@
-require("startup").setup {
-  header = {
-    type = "text",
-    oldfiles_directory = false,
-    align = "center",
-    fold_section = false,
-    title = "Header",
-    margin = 5,
-    content = {},
-    highlight = "Statement",
-    default_color = "#0000ff",
-    oldfiles_amount = 0,
+---@type lazy.types.LazyPluginBase
+return {
+  "startup-nvim/startup.nvim",
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-file-browser.nvim"
   },
-  body = {
-    type = "mapping",
-    oldfiles_directory = false,
-    align = "center",
-    fold_section = false,
-    title = "Basic Commands",
-    margin = 5,
-    content = {
-      { "📄	Find File", "Telescope find_files", "<C-p>" },
-      { "🔎	Find Word", "Telescope live_grep", "<leader>fs" },
-      { "📄	File Browser", "Neotree toggle float", "<leader>ft" },
-      { "🪢	LazyGit", "LazyGit", "<leader>lg" },
-      { "🎨	Colorschemes", "Telescope colorscheme", "<leader>cs" },
-      { "❌	Quit", "qa", ":qa" },
-    },
-    highlight = "String",
-    default_color = "",
-    oldfiles_amount = 0,
-  },
-  options = {
-    mapping_keys = true,
-    cursor_column = 0.5,
-    empty_lines_between_mappings = true,
-    disable_statuslines = true,
-    paddings = { 2, 6, 6, 2 },
-  },
-  mappings = {
-    execute_command = "<CR>",
-    open_file = "o",
-    open_file_split = "<c-o>",
-    open_section = "<TAB>",
-    open_help = "?",
-  },
-  colors = {
-    background = "#1f2227",
-    folded_section = "#56b6c2",
-  },
-  parts = { "header", "body" },
+  config = function()
+    local startup = require "startup"
+
+    startup.setup {
+      header = {
+        type = "text",
+        oldfiles_directory = false,
+        align = "center",
+        fold_section = false,
+        title = "Header",
+        margin = 5,
+        content = {},
+        highlight = "Statement",
+        default_color = "#0000ff",
+        oldfiles_amount = 0,
+      },
+      body = {
+        type = "mapping",
+        oldfiles_directory = false,
+        align = "center",
+        fold_section = false,
+        title = "Basic Commands",
+        margin = 5,
+        content = {
+          { "📄	Find File", "Telescope find_files", "<C-p>" },
+          { "🔎	Find Word", "Telescope live_grep", "<leader>fs" },
+          { "📄	File Browser", "Neotree toggle float", "<leader>ft" },
+          { "🪢	LazyGit", "LazyGit", "<leader>lg" },
+          { "🎨	Colorschemes", "Telescope colorscheme", "<leader>cs" },
+          { "❌	Quit", "qa", ":qa" },
+        },
+        highlight = "String",
+        default_color = "",
+        oldfiles_amount = 0,
+      },
+      options = {
+        mapping_keys = true,
+        cursor_column = 0.5,
+        empty_lines_between_mappings = true,
+        disable_statuslines = true,
+        paddings = { 2, 6, 6, 2 },
+      },
+      mappings = {
+        execute_command = "<CR>",
+        open_file = "o",
+        open_file_split = "<c-o>",
+        open_section = "<TAB>",
+        open_help = "?",
+      },
+      colors = {
+        background = "#1f2227",
+        folded_section = "#56b6c2",
+      },
+      parts = { "header", "body" },
+    }
+  end
 }

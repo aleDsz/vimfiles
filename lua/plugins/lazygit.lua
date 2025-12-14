@@ -1,11 +1,17 @@
--- Transparency of floating window
-vim.g.lazygit_floating_window_winblend = 0
-
--- Scaling factor for floating window
-vim.g.lazygit_floating_window_scaling_factor = 0.9
-
--- Customize lazygit popup window corner characters
-vim.g.lazygit_floating_window_border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-
--- Fallback to 0 if neovim-remote is not installed
-vim.g.lazygit_use_neovim_remote = 1
+---@type lazy.types.LazyPluginBase
+return {
+   "kdheepak/lazygit.nvim",
+   lazy = true,
+   cmd = {
+     "LazyGit",
+     "LazyGitConfig",
+     "LazyGitCurrentFile",
+     "LazyGitFilter",
+     "LazyGitFilterCurrentFile",
+   },
+   -- setting the keybinding for LazyGit with 'keys' is recommended in
+   -- order to load the plugin when the command is run for the first time
+   keys = {
+     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+   }
+}
