@@ -249,7 +249,7 @@ return {
           visible = false,
           force_visible_in_empty_folder = false,
           show_hidden_count = true,
-          hide_dotfiles = false,
+          hide_dotfiles = true,
           hide_gitignored = true,
           hide_hidden = true,
           hide_by_name = {
