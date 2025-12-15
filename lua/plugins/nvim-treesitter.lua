@@ -1,23 +1,30 @@
 ---@type lazy.types.LazyPluginBase
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "master",
   lazy = false,
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/nvim-treesitter-refactor"
-  },
+  build = ":TSUpdate",
   config = function()
-    local configs = require "nvim-treesitter.configs"
+    local treesitter = require "nvim-treesitter"
+    local comment = require "ts_context_commentstring"
 
-    configs.setup {
+    comment.setup {
+      enable_autocmd = false,
+      languages = {
+        typescript = "// %s",
+        lua = "-- %s",
+        elixir = "# %s",
+      },
+    }
+
+    treesitter.setup {
       highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false,
       },
       indent = {
         enable = true,
       },
     }
-
-    vim.cmd(":TSUpdate")
   end,
 }
