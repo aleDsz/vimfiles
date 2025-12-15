@@ -10,7 +10,8 @@ require("mappings")
 -- setup:Theme
 require("theme")
 
--- setup:After LSP setup
+-- setup:LSP setup
+require("lsp")
 require("autocmd")
 
 -- setup:Plugin themes
