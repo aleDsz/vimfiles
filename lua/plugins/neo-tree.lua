@@ -4,6 +4,7 @@ return {
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "antosha417/nvim-lsp-file-operations",
     "MunifTanjim/nui.nvim",
     "ryanoasis/vim-devicons",
   },
