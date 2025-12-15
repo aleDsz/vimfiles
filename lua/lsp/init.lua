@@ -1,11 +1,18 @@
 local servers = {
+  "buf_ls",
   "elixir-ls",
+  "jsonls",
   "lua_ls",
   "luau_lsp",
   "nil_ls",
   "rust-analyzer",
   "tailwindcss",
+  "ts_ls",
 }
+
+if not vim.lsp.inlay_hint.is_enabled() then
+  vim.lsp.inlay_hint.enable(true)
+end
 
 for _, server in ipairs(servers) do
   local file_name = server:gsub("-", "_")
