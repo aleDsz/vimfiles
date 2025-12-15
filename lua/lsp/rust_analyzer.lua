@@ -1,12 +1,10 @@
 ---@type vim.lsp.Config
 return {
   cmd = { "rust-analyzer" },
-	filetypes = { "rust", },
+  filetypes = { "rust", },
   settings = {
     ["rust-analyzer"] = {
-      checkOnSave = {
-        command = "clippy",
-      },
+      checkOnSave = true,
       imports = {
         granularity = {
           group = "module",
