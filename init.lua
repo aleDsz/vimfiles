@@ -9,11 +9,9 @@ require("mappings")
 
 -- setup:Theme
 require("theme")
+require("theme.elixir")
+require("theme.neo-tree")
 
 -- setup:LSP setup
 require("lsp")
 require("autocmd")
-
--- setup:Plugin themes
-require("theme.elixir")
-require("theme.neo-tree")

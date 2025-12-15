@@ -12,3 +12,9 @@ vim.cmd("au VimEnter * highlight Normal guibg=NONE ctermbg=NONE")
 
 -- Override
 vim.cmd("au BufEnter * highlight Normal guibg=NONE ctermbg=NONE")
+
+-- Make floating windows transparent
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#44475a' })

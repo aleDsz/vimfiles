@@ -12,8 +12,10 @@ local hi_groups = {
   NeoTreeGitConflict = { fg = colors.red },
   NeoTreeGitModified = { fg = colors.orange },
   NeoTreeGitUntracked = { fg = colors.yellow },
-  NeoTreeNormal = { bg = colors.menu, fg = colors.fg },
-  NeoTreeNormalNC = { fg = colors.bright_purple, bg = colors.menu },
+  NeoTreeNormal = { bg = "NONE", fg = colors.fg },
+  NeoTreeNormalNC = { fg = colors.bright_purple, bg = "NONE" },
+  NeoTreeFloatNormal = { bg = "NONE" },
+  NeoTreeFloatBorder = { bg = "NONE" },
   NeoTreeSymbolicLinkTarget = { fg = colors.cyan },
 }
 
