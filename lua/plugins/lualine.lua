@@ -4,7 +4,7 @@ return {
   dependencies = { "ryanoasis/vim-devicons" },
   opts = {
     options = {
-      theme = "dracula-nvim",
+      theme = "dracula",
       refresh = {
         statusline = 1000,
       },
