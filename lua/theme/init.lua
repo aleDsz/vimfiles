@@ -3,6 +3,7 @@ local configs = {
   "elixir",
   "neo-tree",
   "floating",
+  "nvim-notify",
 }
 
 for _, file_name in ipairs(configs) do
