@@ -1,6 +1,6 @@
 local colors = require("theme.colors")
 
-local hi_groups = {
+return {
   NeoTreeDirectoryIcon = { fg = colors.purple },
   NeoTreeDirectoryName = { fg = colors.purple, bold = true },
   NeoTreeRootName = { fg = colors.purple, bold = true },
@@ -12,13 +12,9 @@ local hi_groups = {
   NeoTreeGitConflict = { fg = colors.red },
   NeoTreeGitModified = { fg = colors.orange },
   NeoTreeGitUntracked = { fg = colors.yellow },
-  NeoTreeNormal = { bg = "NONE", fg = colors.fg },
-  NeoTreeNormalNC = { fg = colors.bright_purple, bg = "NONE" },
-  NeoTreeFloatNormal = { bg = "NONE" },
-  NeoTreeFloatBorder = { bg = "NONE" },
+  NeoTreeNormal = { bg = colors.none, fg = colors.fg },
+  NeoTreeNormalNC = { fg = colors.bright_purple, bg = colors.none },
+  NeoTreeFloatNormal = { bg = colors.none },
+  NeoTreeFloatBorder = { bg = colors.none },
   NeoTreeSymbolicLinkTarget = { fg = colors.cyan },
 }
-
-for group, spec in pairs(hi_groups) do
-  vim.api.nvim_set_hl(0, group, spec)
-end

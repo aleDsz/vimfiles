@@ -1,20 +1,16 @@
--- Sets the colorscheme for terminal sessions too.
-vim.cmd("colorscheme dracula")
+-- Load highlights
+local configs = {
+  "elixir",
+  "neo-tree",
+  "floating",
+}
 
--- Sets the full support for dracula
-vim.g.dracula_full_special_attrs_support = true
+for _, file_name in ipairs(configs) do
+  local ok, hi_groups = pcall(require, "theme." .. file_name)
 
--- Transparency
-vim.opt.termguicolors = true
-
--- Start with transparency
-vim.cmd("au VimEnter * highlight Normal guibg=NONE ctermbg=NONE")
-
--- Override
-vim.cmd("au BufEnter * highlight Normal guibg=NONE ctermbg=NONE")
-
--- Make floating windows transparent
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#44475a' })
+  if ok then
+    for group, spec in pairs(hi_groups) do
+      vim.api.nvim_set_hl(0, group, spec)
+    end
+  end
+end

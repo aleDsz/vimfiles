@@ -31,5 +31,5 @@ return {
   visual = "#3e4452",
   gutter_fg = "#4b5263",
   nontext = "#9d9dbb",
-  none = "none",
+  none = "NONE",
 }
