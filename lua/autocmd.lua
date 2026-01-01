@@ -1,9 +1,18 @@
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 250
-vim.api.nvim_command [[
-  autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})
-]]
+vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
+
+-- Start with transparency
+vim.api.nvim_create_autocmd({ 'BufEnter', 'VimEnter' }, {
+  callback = function()
+    vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+  end,
+})
 
 -- Enable Treesitter highlighting on file open (only if parser exists)
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
