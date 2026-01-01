@@ -112,3 +112,6 @@ vim.opt.spelllang = "en_us"
 
 -- Disable mouse
 vim.opt.mouse = ""
+
+-- Transparency
+vim.opt.termguicolors = true

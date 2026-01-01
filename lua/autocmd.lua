@@ -22,10 +22,14 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
   callback = function(event)
+    local colorizer = require "colorizer"
+    colorizer.attach_to_buffer(0)
+
     vim.api.nvim_create_autocmd('BufWritePre', {
       buffer = event.buf,
       callback = function()
         vim.lsp.buf.format()
+        colorizer.reload_all_buffers()
       end,
     })
   end,
