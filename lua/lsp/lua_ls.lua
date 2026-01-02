@@ -1,8 +1,3 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
-
 ---@type vim.lsp.Config
 return {
   cmd = { "lua-language-server" },
@@ -12,24 +7,29 @@ return {
     ".luarc.jsonc",
     ".luacheckrc",
     ".stylua.toml",
-		"stylua.toml",
-		"selene.toml",
-		"selene.yml",
+    "stylua.toml",
+    "selene.toml",
+    "selene.yml",
     ".git",
   },
   settings = {
     Lua = {
       runtime = {
         version = "LuaJIT",
-        path = runtime_path,
+        path = {
+          "?.lua",
+          "?/init.lua",
+        }
       },
       diagnostics = {
         enable = true,
-				globals = { "vim" },
-        disable =  { "lowercase-global" },
-			},
-			workspace = {
+        globals = { "vim" },
+        disable = { "lowercase-global" },
+      },
+      workspace = {
         library = {
+          "?.lua",
+          "?/init.lua",
           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
           [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
           [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
@@ -37,10 +37,10 @@ return {
         },
         maxPreload = 9999,
         preloadFileSize = 9999,
-			},
-			telemetry = {
-				enable = false,
-			},
+      },
+      telemetry = {
+        enable = false,
+      },
     },
   },
 }
