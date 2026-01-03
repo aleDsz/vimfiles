@@ -46,10 +46,6 @@ vim.api.nvim_set_keymap("", "<leader>ss", "<PLUG>(incsearch-stay)", {})
 vim.api.nvim_set_keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true })
 
 -- Misc
--- Edit and load vimrc/gvimrc
-vim.api.nvim_set_keymap("n", "<leader>ev", "<CMD>e $MYVIMRC<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>sv", ":luafile $MYVIMRC<CR>", { noremap = true, silent = true })
-
 -- Wrap current paragraph
 vim.api.nvim_set_keymap("", "<leader>w", "gqap", { noremap = true })
 
@@ -66,17 +62,10 @@ vim.api.nvim_set_keymap("n", "<leader>XX", ":!chmod -x %<CR>", { noremap = true 
 -- OS Clipboard
 vim.api.nvim_set_keymap("n", "<leader>y", '"+yy', { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>y", '"+yy', { noremap = true })
-vim.api.nvim_set_keymap("v", "<leader>v", '"*p', { noremap = true })
-vim.api.nvim_set_keymap("v", "<leader>V", '"*P', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>v", '"*p', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>V", '"*P', { noremap = true })
 
 -- PLUGins
 -- LazyGit
 vim.api.nvim_set_keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true })
-
--- NERDTree
--- vim.api.nvim_set_keymap("", "<leader>ft", ":NERDTreeToggle<CR>", { noremap = true })
 
 -- NeoTree
 vim.api.nvim_set_keymap("", "<leader>ft", ":Neotree toggle float<CR>", { noremap = true })
