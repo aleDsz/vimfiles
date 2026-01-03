@@ -86,20 +86,33 @@ vim.api.nvim_set_keymap("v", "<F1>", "<CMD>NNVisualPrompt<CR>", { noremap = true
 -- LSP
 vim.api.nvim_set_keymap("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gi",
+	"<CMD>lua vim.lsp.buf.implementation()<CR>",
+	{ noremap = true, silent = true }
+)
 vim.api.nvim_set_keymap("n", "<leader>gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>TD", "<CMD>lua vim.lsp.buf.type_definition()<CR>",
-  { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>TD",
+	"<CMD>lua vim.lsp.buf.type_definition()<CR>",
+	{ noremap = true, silent = true }
+)
 vim.api.nvim_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
 
 -- DAP & DAP UI
-vim.api.nvim_set_keymap("n", "<leader>tb", "<CMD>lua require'dap'.toggle_breakpoint()<CR>",
-  { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>tb",
+	"<CMD>lua require'dap'.toggle_breakpoint()<CR>",
+	{ noremap = true, silent = true }
+)
 vim.api.nvim_set_keymap("n", "<leader>dc", "<CMD>lua require'dap'.continue()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>td", "<CMD>lua require'dapui'.toggle()<CR>", { noremap = true, silent = true })
 
 -- Completely disable Enter in normal mode
-vim.keymap.set('n', '<CR>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set("n", "<CR>", "<Nop>", { noremap = true, silent = true })

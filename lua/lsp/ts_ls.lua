@@ -1,4 +1,4 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { "tsserver" },
+	cmd = { "tsserver" },
 }
