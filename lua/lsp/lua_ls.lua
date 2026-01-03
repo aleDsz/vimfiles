@@ -41,6 +41,22 @@ return {
       telemetry = {
         enable = false,
       },
-    },
+      format = {
+        enable = false,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+        }
+      },
+    }
   },
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.cmd("silent !stylua " .. vim.fn.expand("%"))
+        vim.cmd("edit!")
+      end,
+    })
+  end,
 }
