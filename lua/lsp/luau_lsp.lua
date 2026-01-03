@@ -1,8 +1,3 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.luau")
-table.insert(runtime_path, "lua/?/init.luau")
-
 ---@type vim.lsp.Config
 return {
 	cmd = { "luau-lsp" },
@@ -21,7 +16,10 @@ return {
 		Luau = {
 			runtime = {
 				version = "Luau",
-				path = runtime_path,
+				path = {
+					"?.lua",
+					"?/init.lua",
+				},
 			},
 			diagnostics = {
 				enable = true,
@@ -29,7 +27,13 @@ return {
 				disable = { "lowercase-global" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("luau", true),
+				library = {
+					vim.api.nvim_get_runtime_file("luau", true),
+					vim.fn.expand("$VIMRUNTIME/lua"),
+					vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+					vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
+					vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+				},
 				maxPreload = 9999,
 				preloadFileSize = 9999,
 			},
