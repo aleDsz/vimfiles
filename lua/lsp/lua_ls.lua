@@ -51,7 +51,7 @@ return {
 		},
 	},
 	on_attach = function(client, bufnr)
-		vim.api.nvim_create_autocmd("BufWritePre", {
+		vim.api.nvim_create_autocmd("BufWritePost", {
 			buffer = bufnr,
 			callback = function()
 				vim.cmd("silent !stylua " .. vim.fn.expand("%"))
