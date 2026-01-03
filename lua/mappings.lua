@@ -1,9 +1,9 @@
 -- Tabs
-vim.api.nvim_set_keymap("n", "<leader>t", ":tabnew<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>te", ":tabedit<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tp", ":tabprevious<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>t", "<CMD>tabnew<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>te", "<CMD>tabedit<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tc", "<CMD>tabclose<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tn", "<CMD>tabnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tp", "<CMD>tabprevious<CR>", { noremap = true })
 
 -- Line movement
 -- Go to start of line with H and to the end with L
@@ -18,8 +18,8 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 
 -- Resize
-vim.api.nvim_set_keymap("n", "<leader>+", ":vertical resize +5<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>-", ":vertical resize -5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>+", "<CMD>vertical resize +5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>-", "<CMD>vertical resize -5<CR>", { noremap = true, silent = true })
 
 -- Folding
 -- Toggles folding with space
@@ -43,21 +43,21 @@ vim.api.nvim_set_keymap("", "<leader>sb", "<PLUG>(incsearch-backward)", {})
 vim.api.nvim_set_keymap("", "<leader>ss", "<PLUG>(incsearch-stay)", {})
 
 -- Spell
-vim.api.nvim_set_keymap("n", "<leader>sc", ":set spell!<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>sc", "<CMD>set spell!<CR>", { noremap = true })
 
 -- Misc
 -- Wrap current paragraph
 vim.api.nvim_set_keymap("", "<leader>w", "gqap", { noremap = true })
 
 -- Toggles hlsearch
-vim.api.nvim_set_keymap("n", "<leader>hs", ":set hlsearch!<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>hs", "<CMD>set hlsearch!<CR>", { noremap = true })
 
 -- Maps <C-C> to <esc>
 vim.api.nvim_set_keymap("", "<C-C>", "<ESC>", { noremap = true })
 
 -- Set current file executable
-vim.api.nvim_set_keymap("n", "<leader>xx", ":!chmod +x %<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>XX", ":!chmod -x %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>xx", "<CMD>!chmod +x %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>XX", "<CMD>!chmod -x %<CR>", { noremap = true })
 
 -- OS Clipboard
 vim.api.nvim_set_keymap("n", "<leader>y", '"+yy', { noremap = true })
@@ -65,10 +65,10 @@ vim.api.nvim_set_keymap("v", "<leader>y", '"+yy', { noremap = true })
 
 -- PLUGins
 -- LazyGit
-vim.api.nvim_set_keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>lg", "<CMD>LazyGit<CR>", { noremap = true, silent = true })
 
 -- NeoTree
-vim.api.nvim_set_keymap("", "<leader>ft", ":Neotree toggle float<CR>", { noremap = true })
+vim.api.nvim_set_keymap("", "<leader>ft", "<CMD>Neotree toggle float<CR>", { noremap = true })
 
 -- Yankstack
 vim.api.nvim_set_keymap("n", "<C-M>", "<PLUG>yankstack_substitute_older_paste", {})
