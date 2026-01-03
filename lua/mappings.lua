@@ -80,6 +80,9 @@ vim.api.nvim_set_keymap("n", "<leader>fs", "<CMD>Telescope live_grep<CR>", { nor
 vim.api.nvim_set_keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { noremap = true })
 
+-- 99
+vim.api.nvim_set_keymap("v", "<F1>", "<CMD>NNVisualPrompt<CR>", { noremap = true })
+
 -- LSP
 vim.api.nvim_set_keymap("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
@@ -97,9 +100,6 @@ vim.api.nvim_set_keymap("n", "<leader>tb", "<CMD>lua require'dap'.toggle_breakpo
   { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>dc", "<CMD>lua require'dap'.continue()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>td", "<CMD>lua require'dapui'.toggle()<CR>", { noremap = true, silent = true })
-
--- AI
-vim.api.nvim_set_keymap("v", "<leader>vvc", ":NNVisualPrompt", { noremap = true, silent = true })
 
 -- Completely disable Enter in normal mode
 vim.keymap.set('n', '<CR>', '<Nop>', { noremap = true, silent = true })
