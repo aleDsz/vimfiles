@@ -40,7 +40,7 @@ return {
 				enable = false,
 			},
 			format = {
-				enable = false,
+				enable = true,
 				defaultConfig = {
 					indent_style = "space",
 					indent_size = "2",
@@ -48,13 +48,4 @@ return {
 			},
 		},
 	},
-	on_attach = function(client, bufnr)
-		vim.api.nvim_create_autocmd("BufWritePost", {
-			buffer = bufnr,
-			callback = function()
-				vim.cmd("silent !stylua " .. vim.fn.expand("%"))
-				vim.cmd("edit!")
-			end,
-		})
-	end,
 }
