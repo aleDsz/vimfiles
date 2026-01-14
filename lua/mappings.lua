@@ -83,6 +83,9 @@ vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { nor
 -- 99
 vim.api.nvim_set_keymap("v", "<F1>", "<CMD>NNVisualPrompt<CR>", { noremap = true })
 
+-- Cloak
+vim.api.nvim_set_keymap("n", "<leader>cpl", "<CMD>CloakPreviewLine<CR>", { noremap = true })
+
 -- LSP
 vim.api.nvim_set_keymap("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
