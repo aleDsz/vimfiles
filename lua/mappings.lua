@@ -106,17 +106,6 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>cf", "<CMD>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
-
--- DAP & DAP UI
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>tb",
-  "<CMD>lua require'dap'.toggle_breakpoint()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>dc", "<CMD>lua require'dap'.continue()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F4>", "<CMD>lua require'dapui'.toggle()<CR>", { noremap = true, silent = true })
 
 -- Completely disable Enter in normal mode
 vim.keymap.set("n", "<CR>", "<Nop>", { noremap = true, silent = true })
