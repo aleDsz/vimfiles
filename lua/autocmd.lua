@@ -32,19 +32,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
   callback = function(event)
     local colorizer = require("colorizer")
+    local conform = require("conform")
+
     colorizer.attach_to_buffer(0)
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = event.buf,
       callback = function()
-        local stylua_root =
-            vim.fs.root(event.buf, { "stylua.toml", ".stylua.toml" })
-
-        if stylua_root then
-          return
-        end
-
         vim.lsp.buf.format()
+        conform.format({ bufnr = 0 })
         colorizer.reload_all_buffers()
       end,
     })
@@ -52,16 +48,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.api.nvim_create_autocmd("BufWritePost", {
       buffer = event.buf,
       callback = function()
-        local stylua_root =
-            vim.fs.root(event.buf, { "stylua.toml", ".stylua.toml" })
-
-        if not (vim.bo[event.buf].filetype == "lua" and stylua_root) then
-          return
-        end
-
-        vim.cmd("silent !stylua " .. vim.fn.expand("%"))
-        vim.cmd("edit!")
-
         colorizer.reload_all_buffers()
       end,
     })
