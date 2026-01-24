@@ -90,18 +90,18 @@ vim.api.nvim_set_keymap("n", "<leader>cpl", "<CMD>CloakPreviewLine<CR>", { norem
 vim.api.nvim_set_keymap("n", "<leader>gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gi",
-  "<CMD>lua vim.lsp.buf.implementation()<CR>",
-  { noremap = true, silent = true }
+	"n",
+	"<leader>gi",
+	"<CMD>lua vim.lsp.buf.implementation()<CR>",
+	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "<leader>gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
-  "n",
-  "<leader>gt",
-  "<CMD>lua vim.lsp.buf.type_definition()<CR>",
-  { noremap = true, silent = true }
+	"n",
+	"<leader>gt",
+	"<CMD>lua vim.lsp.buf.type_definition()<CR>",
+	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", { noremap = true })
