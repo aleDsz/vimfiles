@@ -2,9 +2,7 @@
 return {
 	"aleDsz/99",
 	opts = {
-		md_files = {
-			"AGENT.md",
-			"CLAUDE.md",
-		},
+		display_errors = true,
+		model = "ollama/qwen2.5-coder:14b",
 	},
 }
