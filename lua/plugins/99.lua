@@ -11,6 +11,6 @@ return {
 			"AGENT.md",
 			"CLAUDE.md",
 		},
-		model = "ollama/qwen2.5-coder:14b",
+		model = "ollama/qwen2.5-coder:7b",
 	},
 }
