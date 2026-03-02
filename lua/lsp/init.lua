@@ -2,6 +2,7 @@ local servers = {
 	"buf_ls",
 	"csharp-ls",
 	"elixir-ls",
+	"harper-ls",
 	"jsonls",
 	"lua_ls",
 	"luau_lsp",
