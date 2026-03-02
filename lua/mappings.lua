@@ -81,7 +81,7 @@ vim.api.nvim_set_keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { norem
 vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { noremap = true })
 
 -- 99
-vim.api.nvim_set_keymap("v", "<F1>", "<CMD>NNVisualPrompt<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "<F1>", "<CMD>NNVisualPrompt<CR>", { noremap = true })
 
 -- Lazy
 vim.api.nvim_set_keymap("n", "<C-L>", "<CMD>Lazy<CR>", { noremap = true })
