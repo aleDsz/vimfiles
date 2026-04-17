@@ -2,16 +2,16 @@
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 250
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  callback = function()
-    vim.diagnostic.open_float(nil, { focus = false })
-  end,
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
 })
 
 -- Start with transparency
 vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
-  callback = function()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-  end,
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+	end,
 })
 
 -- Enable Treesitter highlighting on file open (only if parser exists)
@@ -33,27 +33,27 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-  callback = function(event)
-    local colorizer = require("colorizer")
-    local conform = require("conform")
+	group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+	callback = function(event)
+		local colorizer = require("colorizer")
+		local conform = require("conform")
 
-    colorizer.attach_to_buffer(0)
+		colorizer.attach_to_buffer(0)
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = event.buf,
-      callback = function()
-        vim.lsp.buf.format()
-        conform.format({ bufnr = 0 })
-        colorizer.reload_all_buffers()
-      end,
-    })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = event.buf,
+			callback = function()
+				vim.lsp.buf.format()
+				conform.format({ bufnr = 0 })
+				colorizer.reload_all_buffers()
+			end,
+		})
 
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      buffer = event.buf,
-      callback = function()
-        colorizer.reload_all_buffers()
-      end,
-    })
-  end,
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			buffer = event.buf,
+			callback = function()
+				colorizer.reload_all_buffers()
+			end,
+		})
+	end,
 })

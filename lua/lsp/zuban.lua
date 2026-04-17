@@ -1,4 +1,4 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { 'zuban', 'server' },
+	cmd = { "zuban", "server" },
 }
