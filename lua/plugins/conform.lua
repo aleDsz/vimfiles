@@ -13,6 +13,7 @@ return {
 			python = { "black" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
+			css = { "prettier" },
 		},
 		formatters = {
 			["clang-format"] = {
