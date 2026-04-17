@@ -16,16 +16,20 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
 
 -- Enable Treesitter highlighting on file open (only if parser exists)
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    if not vim.treesitter.highlighter.active[buf] then
-      local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
-      -- Only start treesitter if a parser is available
-      if lang and pcall(vim.treesitter.language.add, lang) then
-        vim.treesitter.start(buf)
-      end
-    end
-  end,
+	callback = function()
+		local buf = vim.api.nvim_get_current_buf()
+		local filetype = vim.bo[buf].filetype
+
+		if not vim.treesitter.highlighter.active[buf] then
+			local lang = vim.treesitter.language.get_lang(filetype)
+
+			if vim.treesitter.get_parser(buf, lang, { error = false }) then
+				if lang and pcall(vim.treesitter.language.add, lang) then
+					vim.treesitter.start(buf)
+				end
+			end
+		end
+	end,
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
