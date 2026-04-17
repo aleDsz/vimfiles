@@ -8,6 +8,14 @@ return {
 		local configs = require("nvim-treesitter.configs")
 		local comment = require("ts_context_commentstring")
 
+		-- Install livemd for Livebook
+		vim.filetype.add({
+			pattern = {
+				[".*%.livemd"] = "markdown",
+				[".*%.livemd.eex"] = "markdown",
+			},
+		})
+
 		comment.setup({
 			languages = {
 				elixir = { __default = "# %s", __multiline = '@doc """ %s """' },
