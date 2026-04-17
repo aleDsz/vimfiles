@@ -94,11 +94,10 @@ vim.opt.incsearch = true
 -- Disable mouse
 vim.opt.mouse = nil
 
--- MapLeader = ,
--- vim.cmd([[ let mapleader = "," ]])
+-- Maps the leader shortcut
 vim.g.mapleader = ","
 
--- MapLocalLeader = '
+-- Maps the local leader shortcut
 vim.g.maplocalleader = "'"
 
 -- Open preview window below the code
