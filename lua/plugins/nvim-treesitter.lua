@@ -5,26 +5,26 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		local treesitter = require("nvim-treesitter")
+		local configs = require("nvim-treesitter.configs")
 		local comment = require("ts_context_commentstring")
 
 		comment.setup({
-			enable_autocmd = false,
 			languages = {
-				typescript = "// %s",
-				lua = "-- %s",
-				elixir = "# %s",
+				elixir = { __default = "# %s", __multiline = '@doc """ %s """' },
 			},
 		})
 
-		treesitter.setup({
+		configs.setup({
+			auto_install = true,
+			ensure_installed = "all",
 			highlight = {
-				enable = true,
 				additional_vim_regex_highlighting = false,
-			},
-			indent = {
 				enable = true,
 			},
+			ignore_install = { "jsonc", "ipkg", "blueprint", "fusion", "t32" },
+			indent = { enable = true },
+			modules = {},
+			sync_install = false,
 		})
 	end,
 }
