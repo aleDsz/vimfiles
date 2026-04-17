@@ -115,3 +115,7 @@ vim.opt.mouse = ""
 
 -- Transparency
 vim.opt.termguicolors = true
+
+-- Show whitespace and tabs
+vim.o.list = true
+vim.o.listchars = "tab:» ,lead:•,trail:•"
