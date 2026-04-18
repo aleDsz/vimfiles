@@ -1,5 +1,6 @@
 local servers = {
 	"buf_ls",
+	"ccls",
 	"csharp-ls",
 	"elixir-ls",
 	"harper-ls",
