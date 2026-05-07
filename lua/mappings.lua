@@ -108,3 +108,6 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<CMD>lua vim.lsp.buf.signature_help()<CR>
 
 -- Completely disable Enter in normal mode
 vim.keymap.set("n", "<CR>", "<Nop>", { noremap = true, silent = true })
+
+-- Custom pipe for non-pipe keyboards
+vim.api.nvim_set_keymap("i", "<C-x>z", "|", { noremap = true })
