@@ -80,9 +80,6 @@ vim.api.nvim_set_keymap("n", "<leader>fs", "<CMD>Telescope live_grep<CR>", { nor
 vim.api.nvim_set_keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { noremap = true })
 
--- 99
--- vim.api.nvim_set_keymap("v", "<F1>", "<CMD>NNVisualPrompt<CR>", { noremap = true })
-
 -- Lazy
 vim.api.nvim_set_keymap("n", "<C-L>", "<CMD>Lazy<CR>", { noremap = true })
 
@@ -107,7 +104,6 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 
 -- Completely disable Enter in normal mode
