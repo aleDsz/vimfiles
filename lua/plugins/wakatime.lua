@@ -1,13 +1,6 @@
 ---@type lazy.types.LazyPluginBase
 return {
 	"wakatime/vim-wakatime",
-	cmd = {
-		"WakaTimeApiKey",
-		"WakaTimeDebugEnable",
-		"WakaTimeDebugDisable",
-		"WakaTimeScreenRedrawEnable",
-		"WakaTimeScreenRedrawEnableAuto",
-		"WakaTimeScreenRedrawDisable",
-		"WakaTimeToday",
-	},
+	branch = "master",
+	lazy = false,
 }

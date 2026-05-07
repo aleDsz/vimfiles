@@ -1,12 +1,6 @@
 ---@type lazy.types.LazyPluginBase
 return {
 	"chrisbra/unicode.vim",
-	cmd = {
-		"Digraphs",
-		"UnicodeSearch",
-		"UnicodeName",
-		"UnicodeTable",
-		"DownloadUnicode",
-		"UnicodeCache",
-	},
+	branch = "master",
+	lazy = false,
 }
