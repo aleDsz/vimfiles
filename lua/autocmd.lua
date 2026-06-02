@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
 })
 
 -- Enable Treesitter highlighting on file open (only if parser exists)
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile", "FileType" }, {
 	callback = function()
 		local buf = vim.api.nvim_get_current_buf()
 		local filetype = vim.bo[buf].filetype

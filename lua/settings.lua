@@ -118,3 +118,7 @@ vim.opt.termguicolors = true
 -- Show whitespace and tabs
 vim.o.list = true
 vim.o.listchars = "tab:» ,lead:•,trail:•"
+
+-- Folding
+vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo[0][0].foldmethod = "expr"
