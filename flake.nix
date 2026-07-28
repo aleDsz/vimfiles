@@ -15,7 +15,7 @@
       pkgs = (import nixpkgs) {inherit system;};
 
       libraries = with pkgs; [pkg-config];
-      packages = with pkgs; [lua5_4 stylua];
+      packages = with pkgs; [lua5_4 stylua lua-language-server];
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = packages;
