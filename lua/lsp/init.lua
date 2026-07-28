@@ -3,6 +3,7 @@ local servers = {
 	"ccls",
 	"csharp-ls",
 	"elixir-ls",
+	"expert",
 	"gopls",
 	"harper-ls",
 	"jsonls",
