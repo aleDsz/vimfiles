@@ -4,7 +4,7 @@ return {
 	config = function()
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-		-- Fix "No information avaiable" when hover
+		-- Fix "No information available" when hover
 		vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
 			config = config or {}
 			config.focus_id = ctx.method
@@ -23,7 +23,7 @@ return {
 			return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
 		end
 
-		-- Add onTypeFormatting capability
+		-- Add on type formatting capability
 		-- capabilities.textDocument.onTypeFormatting = { dynamicRegistration = false }
 
 		vim.lsp.config("*", {
