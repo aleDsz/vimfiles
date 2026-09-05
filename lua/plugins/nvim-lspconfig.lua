@@ -24,7 +24,7 @@ return {
 		end
 
 		-- Add on type formatting capability
-		-- capabilities.textDocument.onTypeFormatting = { dynamicRegistration = false }
+		capabilities.textDocument.onTypeFormatting = { dynamicRegistration = false }
 
 		vim.lsp.config("*", {
 			capabilities = capabilities,
