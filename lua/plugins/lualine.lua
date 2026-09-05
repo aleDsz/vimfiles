@@ -6,7 +6,7 @@ return {
 		options = {
 			theme = "dracula",
 			refresh = {
-				statusline = 1000,
+				statusline = 100,
 			},
 		},
 	},
