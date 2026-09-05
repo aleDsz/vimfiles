@@ -13,6 +13,7 @@ local servers = {
 	"rust-analyzer",
 	"tailwindcss",
 	"ts_ls",
+	"typos_lsp",
 	"zuban",
 }
 
