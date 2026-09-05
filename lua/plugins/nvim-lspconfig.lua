@@ -14,7 +14,7 @@ return {
 			end
 
 			local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
-			markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
+			markdown_lines = vim.split(markdown_lines, "\n", { trimempty = true })
 
 			if vim.tbl_isempty(markdown_lines) then
 				return
