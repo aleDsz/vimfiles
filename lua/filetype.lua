@@ -1,5 +1,5 @@
 vim.filetype.add({
 	extension = {
-		yrl = "erlang",
+		yrl = "leex",
 	},
 })
