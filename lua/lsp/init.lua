@@ -1,4 +1,5 @@
 local servers = {
+	"bashls",
 	"buf_ls",
 	"ccls",
 	"csharp-ls",
