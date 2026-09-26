@@ -12,6 +12,7 @@ return {
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			css = { "prettier" },
+			dockerfile = { "dockerfmt" },
 		},
 	},
 }
