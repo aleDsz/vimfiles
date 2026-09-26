@@ -3,6 +3,7 @@ local servers = {
 	"buf_ls",
 	"ccls",
 	"csharp-ls",
+	"docker_language_server",
 	"elixir-ls",
 	"elp",
 	"expert",
