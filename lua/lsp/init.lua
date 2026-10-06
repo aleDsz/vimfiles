@@ -14,6 +14,7 @@ local servers = {
 	"luau_lsp",
 	"nil_ls",
 	"rust-analyzer",
+	"sqls",
 	"tailwindcss",
 	"ts_ls",
 	"typos_lsp",
