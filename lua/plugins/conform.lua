@@ -13,6 +13,13 @@ return {
 			typescript = { "prettier" },
 			css = { "prettier" },
 			dockerfile = { "dockerfmt" },
+			sql = { "sql-formatter" },
+			mysql = { "sql-formatter" },
+		},
+		formatters = {
+			["sql-formatter"] = {
+				append_args = { "-l", "mysql" },
+			},
 		},
 	},
 }
