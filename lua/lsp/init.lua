@@ -18,6 +18,7 @@ local servers = {
 	"tailwindcss",
 	"ts_ls",
 	"typos_lsp",
+	"yamlls",
 	"zuban",
 }
 
