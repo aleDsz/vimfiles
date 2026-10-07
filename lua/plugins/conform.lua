@@ -15,6 +15,7 @@ return {
 			typescript = { "prettier" },
 			css = { "prettier" },
 			dockerfile = { "dockerfmt" },
+			yaml = { "yamlfmt" },
 			sql = { "sql-formatter" },
 			mysql = { "sql-formatter" },
 		},
